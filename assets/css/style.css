@@ -1,0 +1,57 @@
+/* Google Fonts */
+
+*
+{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body
+{
+   background: url(..images/background-image.jpg);
+   background-position: center center;
+   background-repeat: no-repeat;
+}
+
+h1
+{
+    color: #8AF07F;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.content-box
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: #8AF07F;
+    border-radius: 10px;
+}
+
+
+form
+{
+    color: #0B0491;
+}
+
+#username-choice
+{
+    margin: 0 auto;
+    margin: 10px;
+    padding: 5px;
+    width: 150%;
+    border-radius: 8px;
+}
+
+#reset-form, #submit-form
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 20px;
+}
