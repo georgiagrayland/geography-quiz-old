@@ -17,11 +17,11 @@
     
     <!-- Username section before quiz starts -->
 
-    <div id="username-input-box">
+    <div class="content-box">
         <div id="username-form">
         <form>
             <label for="username-choice">Create a username to start the quiz:</label><br>
-            <p>(Username must only contain numbers and/or letters)</p>
+            <p>(Username must only contain letters and/or numbers)</p>
             <br>
             <input type="text" id="username-choice" name="username" placeholder="Enter your username here">
             <br>
@@ -32,6 +32,7 @@
     </div>
 
     <!-- Difficulty selector screen -->
+    <div class="content-box">
     <div id="welcome-title">
         <div>Welcome&nbsp;<p id="chosen-username"></p></div>
         <h2>Please choose a difficulty level:</h2>
@@ -42,8 +43,69 @@
         <button id="intermediate-btn" class="intermediate-btn btn hide" value="2">Intermediate</button>
         <button id="geography-genius-btn" class="geography-genius-btn btn hide" value="2">Geography Genius</button>
     </div>
+    </div>
 
     <!-- Rules for the Quiz Game -->
+    
+    <div class="content-box">
+        <div id="basic-knowledge-rules" class="hide">
+            <div class="rules-title">
+                <h2>Basic Knowldege</h2>
+            </div>
+            <div class="explain-rules">
+                <div class="rules">
+                    <h3>You have chosen the Basic Knowledge Difficulty</h3>
+                </div>
+                <div class="rules">
+                    <p>You will have 30 seconds to answer each question</p>
+                    <p>There will be 10 questions per difficulty level</p>
+                    <p>You must only select one answer per question</p>
+                    <p>You cannot change your answer once submitted</p>
+                    <p>You will know if you have chosen the correct answer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <div id="intermediate-rules" class="hide">
+            <div class="rules-title">
+                <h2>Intermediate</h2>
+            </div>
+            <div class="explain-rules">
+                <div class="rules">
+                    <h3>You have chosen the Intermediate Difficulty</h3>
+                </div>
+                <div class="rules">
+                    <p>You will have 30 seconds to answer each question</p>
+                    <p>There will be 10 questions per difficulty level</p>
+                    <p>You must only select one answer per question</p>
+                    <p>You cannot change your answer once submitted</p>
+                    <p>You will know if you have chosen the correct answer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <div id="geography-genius-rules" class="hide">
+            <div class="rules-title">
+                <h2>Geography Genius</h2>
+            </div>
+            <div class="explain-rules">
+                <div class="rules">
+                    <h3>You have chosen the Geography Genius Difficulty</h3>
+                </div>
+                <div class="rules">
+                    <p>You will have 30 seconds to answer each question</p>
+                    <p>There will be 10 questions per difficulty level</p>
+                    <p>You must only select one answer per question</p>
+                    <p>You cannot change your answer once submitted</p>
+                    <p>You will know if you have chosen the correct answer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="assets/js/script.js"></script>
