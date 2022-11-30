@@ -73,3 +73,37 @@ form
 {
     background-color: crimson;
 }
+
+#basic-knowledge-btn, #intermediate-btn, #geography-genius-btn
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+    width: 200px;
+    display: block;
+}
+
+#basic-knowledge-btn:hover, #intermediate-btn:hover, #geography-genius-btn:hover
+{
+    background-color: crimson;
+}
+
+#start-btn, #change-btn
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+    width: 200px;
+    display: block;
+}
+
+#start-btn:hover, #change-btn:hover
+{
+    background-color: crimson;
+}
