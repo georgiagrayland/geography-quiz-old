@@ -64,5 +64,29 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: "1",
             options: ["United Kingdom", "Canada", "Brazil"],
         },
+        {
+            question:"Which Rainforest makes up half of the worlds Rainforest cover?",
+            correctAnswer: "The Amazon Rainforest",
+            difficulty: "2",
+            options: ["The Congo Rainforest", "Southeast Asian Rainforest", "The Daintree Rainforest"],
+        },
+        {
+            question:"What is the Capital City of Malaysia?",
+            correctAnswer: "Kuala Lumpar",
+            difficulty: "2",
+            options: ["Beijing", "Bangkok", "Jakarata"],
+        },
+        {
+            question:"Which is the highest country (by elevation) in the world?",
+            correctAnswer: "Bhutan",
+            difficulty: "2",
+            options: ["Ireland", "Colombia", "New Zealand"],
+        },
+        { //this is question 4
+            question:"What is the second most populous country in the world?",
+            correctAnswer: "India",
+            difficulty: "2",
+            options: ["Iran", "Japan", "Germany"],
+        },
     ]
 }
