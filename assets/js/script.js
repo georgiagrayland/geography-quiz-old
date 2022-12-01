@@ -1,3 +1,13 @@
+//Add consts to collect all elements needed
+
+//Add section of all event listeners
+
+
+//Add section of game variables
+
+
+//function submitUsername() {
+  //  if (createUsername.value != null && createUsername.value != undefined && createUsername.value.length > 0);
 
 
 

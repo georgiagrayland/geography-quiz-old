@@ -14,14 +14,22 @@
             <h1>Geography Quiz</h1>
         </div>
     </header>
+
+     <!-- Welcome Screen -->
+
+     <div class="content-box">
+        <p class="intro">Test your geography knowledge with this easy-to-follow quiz</p>
+        <p class="intro">Here you will find a variety of interesting questions to challenge you</p>
+        <p class="intro">Play along with friends to see who is the Geography Genius</p>
+        <button id="initiate" type="submit">Enter the Quiz</button>
+     </div>
     
     <!-- Username section before quiz starts -->
 
     <div class="content-box">
         <div id="username-form">
-        <form>
+        <form method="POST" action="">
             <label for="username-choice">Create a username to start the quiz:</label><br>
-            <p id="explain">(Username must only contain letters and/or numbers)</p>
             <br>
             <input type="text" id="username-choice" name="username" placeholder="Enter your username here">
             <br>

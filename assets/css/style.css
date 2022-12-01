@@ -46,6 +46,20 @@ h1
     width: 60%;
 }
 
+#initiate
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+#initiate:hover{
+    color: crimson;
+}
+
 
 form
 {
