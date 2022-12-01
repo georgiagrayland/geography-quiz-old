@@ -124,6 +124,65 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: 2,
             options: ["Rome", "Naples", "Milan", "Venice"], 
         },
-
+        {//start of hardest difficulty questions 
+            question:"What is the oldest city in the world?",
+            correctAnswer: "Damascus",
+            difficulty: 3,
+            options: ["Dublin", "Florence", "Damascus", "London"], 
+        },
+        { 
+            question:"Which country has the highest number of Capital Cities?",
+            correctAnswer: "South Africa",
+            difficulty: 3,
+            options: ["Greece", "Algeria", "Colombia", "South Africa"], 
+        },
+        { 
+            question:"What is the Earth's approximate water to land ratio?",
+            correctAnswer: "71:29",
+            difficulty: 3,
+            options: ["71:29", "35:65", "57:33", "42:58"], 
+        },
+        { 
+            question:"What is the name of the supercontinent that existed 200 million years ago?",
+            correctAnswer: "Pangea",
+            difficulty: 3,
+            options: ["Eurasia", "Rodinia", "Pangea", "Gondwana"], 
+        },
+        { 
+            question:"Which country has the greatest number of international land borders?",
+            correctAnswer: "China",
+            difficulty: 3,
+            options: ["France", "China", "Peru", "Indonseia"], 
+        },
+        { 
+            question:"What is the distance between the USA and Russia at the narrowest point (The Bering Strait)?",
+            correctAnswer: "55 miles",
+            difficulty: 3,
+            options: ["55 miles", "36 miles", "105 miles", "82 miles"], 
+        },
+        { //this is question 7
+            question:"Which is the tallest Mountain in the United Kingdom?",
+            correctAnswer: "Ben Nevis",
+            difficulty: 3,
+            options: ["Great Gable", "Scafell Pike", "Snowdon", "Ben Nevis"], 
+        },
+        { //8
+            question:"What is the currency of Sweden?",
+            correctAnswer: "Krona",
+            difficulty: 3,
+            options: ["Lev", "Krona", "Euro", "Forint"], 
+        },
+        { //9
+            question:"To what country do the Canary Islands belong?",
+            correctAnswer: "Spain",
+            difficulty: 3,
+            options: ["Denmark", "Morocco", "Spain", "Italy"], 
+        },
+        { //10
+            question:"To the nearest billion, how large is the world's population?",
+            correctAnswer: "8",
+            difficulty: 3,
+            options: ["8", "5", "6", "10"], 
+        },
     ]
 }
