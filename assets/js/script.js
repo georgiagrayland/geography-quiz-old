@@ -15,11 +15,16 @@ const intermediateRules = document.getElementById("intermediate-rules");
 const geniusRules = document.getElementById("geography-genius-rules");
 
 //Input and container elements
-const inputUsername = document.getElementById("username-choice");
-const questionTracker = document.getElementById("question-number");
-const timer = document.getElementById("question-timer");
+let gameArea = document.getElementById("content-box");
+const createUserName = document.getElementById("username-form");
+const submitUsername = document.getElementById("submit-form");
+const resetForm = document.getElementById("reset-form");
 const difficultyName = document.getElementById("difficulty-title");
 const chosenUsername = document.getElementById("chosen-username");
+const questionTracker = document.getElementById("question-number");
+const timer = document.getElementById("question-timer");
+
+
 
 //Change diffiuclty reset button
 const changeBasicDifficulty = document.getElementById("basic-change-btn");
@@ -28,9 +33,13 @@ const changeGeniusDifficulty = document.getElementById("genius-change-btn");
 
 
 
-//ADD VARIABLES
+//ADD VARIABLES of game in general
 
-//Add section of all event listeners
+//Add section of event listeners
+
+//When username submitted or reset
+submitUsername.addEventListener("click", difficultySelector);
+resetForm.addEventListener("click", createUserName);
 
 //When difficuly clicked
 basicDifficulty.addEventListener("click", startGameRules);
@@ -47,12 +56,40 @@ basicQuiz.addEventListener("click", startGame);
 intermediateQuiz.addEventListener("click", startGame);
 geniusQuiz.addEventListener("click", startGame);
 
+function submitUsername(); {
+        let username = document.getElementById("username-choice")
+        if(username.value == ""){
+            alert("You have not entered a username, Player 1 will be your default");
+            username.value = "Player 1";
+        }
+}
 
-//Add section of game variables
+gameArea.innerHTML = 
+    `
+    <div id="welcome-title">
+        <div>Welcome <p id="chosen-username"> ${username.value}></p></div>
+        <h2>Please choose a difficulty level:</h2>
+    </div>
+    `;
+
+function goToChooseDifficulty (){
+
+}
 
 
-//function submitUsername() {
-  //  if (createUsername.value != null && createUsername.value != undefined && createUsername.value.length > 0);
+/** To display the current question, score and check answer
+ * 
+ */
+
+function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker); {
+    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer);
+
+    gameArea.innerHTML=
+    `
+    //Add html section here to add the display of the game questions with ids & radio button
+    `
+
+}
 
 
 
