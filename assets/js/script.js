@@ -1,4 +1,26 @@
-//Add consts to collect all elements needed
+//Collecting elements needed
+//Difficulty Selectors
+const basicQuiz = document.getElementById("basic-knowledge-btn");
+const intermediateQuiz = document.getElementById("intermediate-btn");
+const geniusQuiz = document.getElementById("geography-genius-btn");
+
+//Start Game buttons
+const basicDifficulty = document.getElementById("basic-start-btn");
+const intermediateDifficulty = document.getElementById("intermediate-start-btn");
+const genuusDifficulty = document.getElementById("genius-start-btn");
+
+//Rules
+const basicRules = document.getElementById("basic-knowledge-rules");
+const intermediateRules = document.getElementById("intermediate-rules");
+const geniusRules = document.getElementById("geography-genius-rules");
+
+//Change diffiuclty reset button
+const changeBasicDifficulty = document.getElementById("basic-change-btn");
+const changeIntermediateDifficulty = document.getElementById("intermediate-change-btn");
+const changeGeniusDifficulty = document.getElementById("genius-change-btn");
+
+
+
 
 //Add section of all event listeners
 
