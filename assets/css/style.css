@@ -46,6 +46,12 @@ h1
     width: 60%;
 }
 
+.intro
+{
+    color: #0B0491;
+    padding-top: 10px;
+}
+
 #initiate
 {
     background-color: #0B0491;
@@ -95,6 +101,7 @@ input[type=text]
     padding: 7px 25px 7px 25px;
     border-radius: 8px;
     margin: 20px;
+    font-family: "ABeeZee", sans-serif;
 }
 
 #reset-form:hover, #submit-form:hover
@@ -111,6 +118,7 @@ input[type=text]
     border-radius: 8px;
     margin: 20px;
     width: 200px;
+    font-family: "ABeeZee", sans-serif;
     display: block;
 }
 
@@ -119,7 +127,7 @@ input[type=text]
     background-color: crimson;
 }
 
-#start-btn, #change-btn
+#basic-start-btn, #intermediate-start-btn, #genius-start-btn, #basic-change-btn, #intermediate-change-btn, #genius-change-btn
 {
     background-color: #0B0491;
     color: white;
@@ -129,9 +137,11 @@ input[type=text]
     margin: 20px;
     width: 200px;
     display: block;
+    font-family: "ABeeZee", sans-serif;
 }
 
-#start-btn:hover, #change-btn:hover
+
+#basic-start-btn:hover, #intermediate-start-btn:hover, #genius-start-btn:hover, #basic-change-btn:hover, #intermediate-change-btn:hover, #genius-change-btn:hover
 {
     background-color: crimson;
 }
