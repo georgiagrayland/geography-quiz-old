@@ -56,12 +56,19 @@ basicQuiz.addEventListener("click", startGame);
 intermediateQuiz.addEventListener("click", startGame);
 geniusQuiz.addEventListener("click", startGame);
 
-function submitUsername(); {
+
+document.getElementById("initiate").addEventListener("click", function(event){
+    event.preventDefault();
+    createUserName();
+});
+
+function createUsername(); {
         let username = document.getElementById("username-choice")
         if(username.value == ""){
             alert("You have not entered a username, Player 1 will be your default");
             username.value = "Player 1";
         }
+    submitUsername();
 }
 
 gameArea.innerHTML = 
