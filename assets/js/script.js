@@ -88,5 +88,42 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: 2,
             options: ["Iran", "India", "Japan", "Germany"],
         },
+        {
+            question:"Which Sea separates Europe and Africa?",
+            correctAnswer: "The Mediterranean Sea",
+            difficulty: 2,
+            options: ["The Dead Sea", "The North Sea", "The Mediterranean Sea", "The Baltic Sea"],
+        },
+        {
+            question:"What is the longest River in Asia?",
+            correctAnswer: "The Yangtze",
+            difficulty: 2,
+            options: ["The Indus", "The Yellow River", "The Mekong", "The Yangtze"],
+        },
+        {
+            question:"What is the largest River in North America?",
+            correctAnswer: "Lake Superior",
+            difficulty: 2,
+            options: ["Lake Erie", "Lake Superior", "Lake Michigan", "Lake Huron"],
+        },
+        {
+            question:"Which Ocean lies between India and Africa?",
+            correctAnswer: "The Indian Ocean",
+            difficulty: 2,
+            options: ["The Indian Ocean", "The Atlantic Ocean", "The Pacific Ocean", "The Southern Ocean"], 
+        },
+        {
+            question:"Which country has the lowest population density?",
+            correctAnswer: "Mongolia",
+            difficulty: 2,
+            options: ["Mongolia", "Bangladesh", "Argentina", "Chad"], 
+        },
+        {//this is question 10
+            question:"Which Italian City is famous for its canals?",
+            correctAnswer: "Venice",
+            difficulty: 2,
+            options: ["Rome", "Naples", "Milan", "Venice"], 
+        },
+
     ]
 }
