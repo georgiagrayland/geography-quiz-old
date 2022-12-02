@@ -1,4 +1,4 @@
-//start the game event listener 
+//start the game event listener
 
 document.getElementById("initiate").addEventListener("click", function(event){
     event.preventDefault();
@@ -35,7 +35,7 @@ function createUserNameArea(){
 }
 
 
-function submitUsername(); {
+function submitUsername() {
 //check a username has been entered before submitting
 let username = document.getElementById("username-choice");
     if(username.value === "") {
@@ -57,7 +57,7 @@ submitUsername.addEventListener("click", function(event){
 });
 }
 
-function selectDifficulty();
+function selectDifficulty(username) {
 gameArea.innerHTML =
 `
     <div>Welcome ${username}</p></div>
@@ -70,9 +70,7 @@ controlArea.innerHTML =
 <button id="intermediate-btn" class="intermediate-btn btn hide" value="2">Intermediate</button>
 <button id="geography-genius-btn" class="geography-genius-btn btn hide" value="2">Geography Genius</button>
 </div>
-`
-
-
+`;
 gameArea.innerHTML = 
     `
     <div id="welcome-title">
@@ -81,17 +79,39 @@ gameArea.innerHTML =
     </div>
     `;
 
-function goToChooseDifficulty (){
+let basic = document.getElementById("basic-knowledge-btn");
+let basicDifficulty = basic.getAttribute("id");
+
+let intermediate = document.getElementById("intermediate-btn");
+let intermediateDifficulty = intermediate.getAttribute("id")
+
+let genius = document.getElementById("geography-genius-btn");
+let geniusDifficulty = genius.getAttribute("id");
+
+//Listeners for topic buttons when clicked
+
+basic.addEventListener("click", function(event) {
+    event.preventDefault();
+    displayQuestion("difficulty of this question");
+    })
+
+intermediate.addEventListener("click", function(event) {
+    event.preventDefault();
+    displayQuestion("difficulty of this question");
+    })
+
+genius.addEventListener("click", function(event) {
+        event.preventDefault();
+        displayQuestion("difficulty of this question");
+    })
 
 }
-
-
 /** To display the current question, score and check answer
  * 
  */
 
-function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker); {
-    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer);
+function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker) {
+    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer)
 
     gameArea.innerHTML=
     `
@@ -290,11 +310,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
 
 
 
-//Collecting constant elements needed
-//Difficulty Selectors
-const basicDifficulty = document.getElementById("basic-knowledge-btn");
-const intermediateDifficulty = document.getElementById("intermediate-btn");
-const geniusDifficulty = document.getElementById("geography-genius-btn");
+//Collecting constant elements needed before putting into functions
 
 //Start Game buttons
 const basicQuiz = document.getElementById("basic-start-btn");
@@ -307,41 +323,13 @@ const intermediateRules = document.getElementById("intermediate-rules");
 const geniusRules = document.getElementById("geography-genius-rules");
 
 //Input and container elements
-let gameArea = document.getElementById("content-box");
-const createUserName = document.getElementById("username-form");
-const resetForm = document.getElementById("reset-form");
 const difficultyName = document.getElementById("difficulty-title");
 const questionTracker = document.getElementById("question-number");
 const timer = document.getElementById("question-timer");
 
 
 
-//Change diffiuclty reset button
-const changeBasicDifficulty = document.getElementById("basic-change-btn");
-const changeIntermediateDifficulty = document.getElementById("intermediate-change-btn");
-const changeGeniusDifficulty = document.getElementById("genius-change-btn");
 
 
 
-//ADD VARIABLES of game in general
 
-//Add section of event listeners
-
-//When username submitted or reset
-submitUsername.addEventListener("click", difficultySelector);
-resetForm.addEventListener("click", createUserName);
-
-//When difficuly clicked
-basicDifficulty.addEventListener("click", startGameRules);
-intermediateDifficulty.addEventListener("click", startGameRules);
-geniusDifficulty.addEventListener("click", startGameRules);
-
-//When change difficulty clicked
-changeBasicDifficulty.addEventListener("click", startChangeGameDifficulty);
-changeIntermediateDifficulty.addEventListener("click", startChangeGameDifficulty);
-changeGeniusDifficulty.addEventListener("click", startChangeGameDifficulty);
-
-//When start game button clicked to enter questions section
-basicQuiz.addEventListener("click", startGame);
-intermediateQuiz.addEventListener("click", startGame);
-geniusQuiz.addEventListener("click", startGame);
