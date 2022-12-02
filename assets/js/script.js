@@ -5,28 +5,72 @@ document.getElementById("initiate").addEventListener("click", function(event){
     createUserName();
 });
 
-let gameArea = document.getElementById("content-box");
-let controlsArea = document.getElementsByTagName("button");
+let gameArea = document.getElementsByClassName("content-box");
+let controlArea = document.getElementsByClassName("button");
 
 /** Once the user clicks to enter the quiz they will be presented with the create username section */
 
+function createUserNameArea(){
+    gameArea.innerHTML =
+    `
+    <form method="POST" action="">
+        <label for="username-choice">Create a username to start the quiz:</label><br>
+        <br>
+        <input type="text" id="username-choice" name="username" placeholder="Enter your username here">
+        <br>
+        <input id="reset-form" type="reset">
+        <input id="submit-form" type="submit" value="Submit">
+    </form>
+    `;
 
-let usernameInput = document.getElementById("username-choice");
+    let usernameInput = document.getElementById("username-choice");
+    let submitUsername = document.getElementById("submit-form");
 
-//Listen for submission of username
+    //Listen for submission of username
 
-document.getElementById("submit-form").addEventListener("click", function(event) {
+    document.getElementById("submit-form").addEventListener("click", function(event) {
     event.preventDefault();
     submitUsername();
 });
+}
 
-function submitUsername();
+
+function submitUsername(); {
 //check a username has been entered before submitting
 let username = document.getElementById("username-choice");
     if(username.value === "") {
         alert("You have not entered a username, Player 1 is the default")
         username.value = "Player 1";
     }
+
+//If reset username button clicked 
+    let resetUsername = document.getElementById("reset-form");
+
+        resetUsername.addEventListener("click", function(event) {
+        event.preventDefault();
+        createUserNameArea();
+    });
+
+submitUsername.addEventListener("click", function(event){
+    event.preventDefault();
+    selectDifficulty();
+});
+}
+
+function selectDifficulty();
+gameArea.innerHTML =
+`
+    <div>Welcome ${username}</p></div>
+        <h2>Please choose a difficulty level:</h2>
+`;
+
+controlArea.innerHTML =
+`<div class="button">
+<button id="basic-knowledge-btn" class="basic-knowledge-btn btn hide" value="1">Basic Knowledge</button>
+<button id="intermediate-btn" class="intermediate-btn btn hide" value="2">Intermediate</button>
+<button id="geography-genius-btn" class="geography-genius-btn btn hide" value="2">Geography Genius</button>
+</div>
+`
 
 
 gameArea.innerHTML = 
@@ -265,7 +309,6 @@ const geniusRules = document.getElementById("geography-genius-rules");
 //Input and container elements
 let gameArea = document.getElementById("content-box");
 const createUserName = document.getElementById("username-form");
-const submitUsername = document.getElementById("submit-form");
 const resetForm = document.getElementById("reset-form");
 const difficultyName = document.getElementById("difficulty-title");
 const questionTracker = document.getElementById("question-number");
