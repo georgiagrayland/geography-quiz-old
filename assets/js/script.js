@@ -25,12 +25,11 @@ function createUsername() {
     <div>
     `;
 
-    let usernameInput = document.getElementById("username-choice");
-    let submitUsername = document.getElementById("submit-form");
+    //let usernameInput = document.getElementById("username-choice");
 
     //Listen for submission of username
 
-    document.getElementById("submit-form").addEventListener("click", function(event) {
+    let submitUsername = document.getElementById("submit-form").addEventListener("click", function(event) {
     event.preventDefault();
     submitUsername();
 });
@@ -62,7 +61,6 @@ submitUsername.addEventListener("click", function(event){
 //Display rules to the user 
 function displayRules(){
 
-    let selectedDifficulty = document.getElementById("difficulty")
     gameArea.innerHTML = 
     `
     <div class="content-box">
