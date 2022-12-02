@@ -92,7 +92,7 @@ function selectDifficulty(username) {
 gameArea.innerHTML =
 `
     <div class="content-box">
-    <div>Welcome ${username}</p></div>
+    <div>Welcome ${username.value}</p></div>
         <h2>Please choose a difficulty level:</h2>
         </div>
 `;
@@ -166,8 +166,20 @@ function displayQuestion (questionNumber, correctScore, incorrectScore, timer, q
     //Code to display the current question 
     gameArea.innerHTML=
     `
-    //Add html section here to add the display of the game questions with ids & radio button
+    <p id="current-question">${currentQuestion}</p>
+    <form method="POST" action="">
+    <label for="answer1">${currentQuestion.options[0]}"</label>
+    <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
+    <label for="answer2">${currentQuestion.options[1]}"</label>
+    <input type="radio" id="answer2" name="answer" value="${currentQuestion.options[1]}">
+    <label for="answer3">${currentQuestion.options[2]}"</label>
+    <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[2]}">
+    <label for="answer4">${currentQuestion.options[3]}"</label>
+    <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[3]}">
+    </form>
     `
+
+// Add code that will display score, timer, and check answer buttons 
 }
 
 
