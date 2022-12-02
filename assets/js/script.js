@@ -40,7 +40,7 @@ function submitUsername() {
 //check a username has been entered before submitting
 let username = document.getElementById("username-choice");
     if(username.value === "") {
-        alert("You have not entered a username, Player 1 is the default")
+        alert("You have not entered a username, Player 1 is the default");
         username.value = "Player 1";
     }
 
@@ -89,6 +89,7 @@ function displayRules(){
 }
 
 function selectDifficulty(username) {
+    let difficultyName = document.getElementsByClassName("difficulty");
 gameArea.innerHTML =
 `
     <div class="content-box">
@@ -109,7 +110,7 @@ let basic = document.getElementById("basic-knowledge-btn");
 let basicDifficulty = basic.getAttribute("id");
 
 let intermediate = document.getElementById("intermediate-btn");
-let intermediateDifficulty = intermediate.getAttribute("id")
+let intermediateDifficulty = intermediate.getAttribute("id");
 
 let genius = document.getElementById("geography-genius-btn");
 let geniusDifficulty = genius.getAttribute("id");
@@ -119,23 +120,23 @@ let geniusDifficulty = genius.getAttribute("id");
 basic.addEventListener("click", function(event) {
     event.preventDefault();
     displayQuestion(basicDifficulty, username, questionTracker, timer);
-    })
+    });
 
 intermediate.addEventListener("click", function(event) {
     event.preventDefault();
     displayQuestion(intermediateDifficulty, username, questionTracker, timer);
-    })
+    });
 
 genius.addEventListener("click", function(event) {
         event.preventDefault();
         displayQuestion(geniusDifficulty, username, questionTracker, timer);
-    })
+    });
 
 }
 
 function confirmQuiz(){
 
-    let difficultyName = document.getElementsByClassName("difficulty");
+    
     gameArea.innerHTML =
     `<div class="content-box">
                 <h3 id="difficulty-title">You have chosen the ${difficultyName.value}</h3>
@@ -143,16 +144,16 @@ function confirmQuiz(){
     <button id="start-btn" type="submit" class="start-btn ">START QUIZ</button>
     <button id="change-btn" class="change-btn">CHANGE DIFFICULTY</button>
     </div>
-    `
-    let startQuiz = document.getElementById("start-btn").addEventListener("click", function(event){
+    `;
+        document.getElementById("start-btn").addEventListener("click", function(event){
         event.preventDefault();
         displayQuestion();
     });
 
-    let changeDifficulty = document.getElementById("change-btn").addEventListener("click", function(event){
+        document.getElementById("change-btn").addEventListener("click", function(event){
         event.preventDefault();
         selectDifficulty();
-        })
+        });
 }
 
 
@@ -177,7 +178,7 @@ function displayQuestion (questionNumber, correctScore, incorrectScore, timer, q
     <label for="answer4">${currentQuestion.options[3]}"</label>
     <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[3]}">
     </form>
-    `
+    `;
 
 // Add code that will display score, timer, and check answer buttons 
 }
@@ -366,7 +367,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: 3,
             options: ["8", "5", "6", "10"], 
         },
-    ]
+    ];
 }
 
 function correctAnswer () {
