@@ -55,8 +55,39 @@ let username = document.getElementById("username-choice");
 
 submitUsername.addEventListener("click", function(event){
     event.preventDefault();
-    selectDifficulty();
+    displayRules();
 });
+}
+
+//Display rules to the user 
+function displayRules(){
+
+    let selectedDifficulty = document.getElementById("difficulty")
+    gameArea.innerHTML = 
+    `
+    <div class="content-box">
+        <div class="rules-title">
+                <h2>Rules for the Game</h2>
+         </div>
+        <div class="rules">
+                    <p>You will have 30 seconds to answer each question</p>
+                    <p>There will be 10 questions per difficulty level</p>
+                    <p>You must only select one answer per question</p>
+                    <p>You cannot change your answer once submitted</p>
+                    <p>You will know if you have chosen the correct answer.</p>
+                </div>
+    </div>
+
+    <div class="button">
+    <button id="move-on-btn" type="submit" class="move-on-btn btn ">START QUIZ</button>
+    </div>
+    `;
+
+    let moveOn = document.getElementById("move-on-btn").addEventListener("click", function(event){
+        event.preventDefault();
+        selectDifficulty();
+    });
+
 }
 
 function selectDifficulty(username) {
@@ -70,9 +101,9 @@ gameArea.innerHTML =
 
 controlArea.innerHTML =
 `<div class="button">
-<button id="basic-knowledge-btn" class="basic-knowledge-btn btn hide" value="1">Basic Knowledge</button>
-<button id="intermediate-btn" class="intermediate-btn btn hide" value="2">Intermediate</button>
-<button id="geography-genius-btn" class="geography-genius-btn btn hide" value="2">Geography Genius</button>
+<button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button>
+<button id="intermediate-btn" class="difficulty" value="2">Intermediate</button>
+<button id="geography-genius-btn" class="difficulty" value="2">Geography Genius</button>
 </div>
 `;
 
@@ -104,13 +135,37 @@ genius.addEventListener("click", function(event) {
 
 }
 
+function confirmQuiz(){
+
+    let difficultyName = document.getElementsByClassName("difficulty");
+    gameArea.innerHTML =
+    `<div class="content-box">
+                <h3 id="difficulty-title">You have chosen the ${difficultyName.value}</h3>
+     
+    <button id="start-btn" type="submit" class="start-btn ">START QUIZ</button>
+    <button id="change-btn" class="change-btn">CHANGE DIFFICULTY</button>
+    </div>
+    `
+    let startQuiz = document.getElementById("start-btn").addEventListener("click", function(event){
+        event.preventDefault();
+        displayQuestion();
+    });
+
+    let changeDifficulty = document.getElementById("change-btn").addEventListener("click", function(event){
+        event.preventDefault();
+        selectDifficulty();
+        })
+}
+
+
 /** To display the current question, score and check answer
  * 
  */
 
 function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker) {
-    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer)
+    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer);
 
+    //Code to display the current question 
     gameArea.innerHTML=
     `
     //Add html section here to add the display of the game questions with ids & radio button
@@ -325,7 +380,7 @@ const intermediateRules = document.getElementById("intermediate-rules");
 const geniusRules = document.getElementById("geography-genius-rules");
 
 //Input and container elements
-const difficultyName = document.getElementById("difficulty-title");
+
 const questionTracker = document.getElementById("question-number");
 const timer = document.getElementById("question-timer");
 
