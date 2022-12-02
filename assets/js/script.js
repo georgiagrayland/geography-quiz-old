@@ -308,14 +308,20 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
     ]
 }
 
+function correctAnswer () {
+
+}
+
+function incorrectAnswer () {
+
+}
+
+
 
 
 //Collecting constant elements needed before putting into functions
 
 //Start Game buttons
-const basicQuiz = document.getElementById("basic-start-btn");
-const intermediateQuiz = document.getElementById("intermediate-start-btn");
-const geniusQuiz = document.getElementById("genius-start-btn");
 
 //Rules
 const basicRules = document.getElementById("basic-knowledge-rules");
