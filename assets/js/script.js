@@ -2,7 +2,7 @@
 
 document.getElementById("initiate").addEventListener("click", function(event){
     event.preventDefault();
-    createUserName();
+    createUsername();
 });
 
 let gameArea = document.getElementsByClassName("content-box");
@@ -10,9 +10,10 @@ let controlArea = document.getElementsByClassName("button");
 
 /** Once the user clicks to enter the quiz they will be presented with the create username section */
 
-function createUserNameArea(){
+function createUsername() {
     gameArea.innerHTML =
     `
+    <div class="content-box">
     <form method="POST" action="">
         <label for="username-choice">Create a username to start the quiz:</label><br>
         <br>
@@ -21,6 +22,7 @@ function createUserNameArea(){
         <input id="reset-form" type="reset">
         <input id="submit-form" type="submit" value="Submit">
     </form>
+    <div>
     `;
 
     let usernameInput = document.getElementById("username-choice");
@@ -48,7 +50,7 @@ let username = document.getElementById("username-choice");
 
         resetUsername.addEventListener("click", function(event) {
         event.preventDefault();
-        createUserNameArea();
+        createUsername();
     });
 
 submitUsername.addEventListener("click", function(event){
@@ -60,8 +62,10 @@ submitUsername.addEventListener("click", function(event){
 function selectDifficulty(username) {
 gameArea.innerHTML =
 `
+    <div class="content-box">
     <div>Welcome ${username}</p></div>
         <h2>Please choose a difficulty level:</h2>
+        </div>
 `;
 
 controlArea.innerHTML =
@@ -71,13 +75,6 @@ controlArea.innerHTML =
 <button id="geography-genius-btn" class="geography-genius-btn btn hide" value="2">Geography Genius</button>
 </div>
 `;
-gameArea.innerHTML = 
-    `
-    <div id="welcome-title">
-        <div>Welcome <p id="chosen-username"> ${username.value}></p></div>
-        <h2>Please choose a difficulty level:</h2>
-    </div>
-    `;
 
 let basic = document.getElementById("basic-knowledge-btn");
 let basicDifficulty = basic.getAttribute("id");
@@ -92,20 +89,21 @@ let geniusDifficulty = genius.getAttribute("id");
 
 basic.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion("difficulty of this question");
+    displayQuestion(basicDifficulty, username, questionTracker, timer);
     })
 
 intermediate.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion("difficulty of this question");
+    displayQuestion(intermediateDifficulty, username, questionTracker, timer);
     })
 
 genius.addEventListener("click", function(event) {
         event.preventDefault();
-        displayQuestion("difficulty of this question");
+        displayQuestion(geniusDifficulty, username, questionTracker, timer);
     })
 
 }
+
 /** To display the current question, score and check answer
  * 
  */
@@ -117,9 +115,7 @@ function displayQuestion (questionNumber, correctScore, incorrectScore, timer, q
     `
     //Add html section here to add the display of the game questions with ids & radio button
     `
-
 }
-
 
 
 //this is where the questions are returned correct or incorrect 
