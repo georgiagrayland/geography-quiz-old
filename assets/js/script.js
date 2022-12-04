@@ -29,7 +29,8 @@ function createUsername() {
 
     //Listen for submission of username
 
-    let submitUsername = document.getElementById("submit-form").addEventListener("click", function(event) {
+    let submitUsername = document.getElementById("submit-form")
+    submitUsername.addEventListener("click", function(event) {
     event.preventDefault();
     submitUsername();
 });
@@ -81,7 +82,8 @@ function displayRules(){
     </div>
     `;
 
-    let moveOn = document.getElementById("move-on-btn").addEventListener("click", function(event){
+    let moveOn = document.getElementById("move-on-btn")
+        moveOn.addEventListener("click", function(event){
         event.preventDefault();
         selectDifficulty();
     });
@@ -139,7 +141,7 @@ function confirmQuiz(){
     
     gameArea.innerHTML =
     `<div class="content-box">
-                <h3 id="difficulty-title">You have chosen the ${difficultyName.value}</h3>
+                <h3 id="difficulty-title">You have chosen the ${difficultyName}</h3>
      
     <button id="start-btn" type="submit" class="start-btn ">START QUIZ</button>
     <button id="change-btn" class="change-btn">CHANGE DIFFICULTY</button>
@@ -167,12 +169,14 @@ function confirmQuiz(){
  */
 
 function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker) {
-    let currentQuestion = selectQuestion(difficultyName, questionNumber, correctScore, timer);
+    let currentQuestion =  selectQuestion (questions, questionTracker, timer) 
 
     //Code to display the current question 
     gameArea.innerHTML=
     `
-    <p id="current-question">${currentQuestion}</p>
+    <p id="question-number">Question ${questionTracker}  /10</p>
+    <p id="current-question">${currentQuestion.question}</p>
+    
     <div>
     <form method="POST" action="">
     <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
@@ -199,6 +203,8 @@ Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
 </p>
 <button id="answer-check" type="button">Check Answer</button>
 `;
+
+let displayedScore = document.getElementById("score-count");
 
 //When user clicks the check answer button
 let confirmAnswer = document.getElementById("answer-check");
@@ -291,13 +297,13 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: 2,
             options: ["Ireland", "Colombia", "New Zealand", "Kuala Lumpar"],
         },
-        { //this is question 4
+        { 
             question:"What is the second most populous country in the world?",
             correctAnswer: "India",
             difficulty: 2,
             options: ["Iran", "India", "Japan", "Germany"],
         },
-        {
+        {//Question 5 
             question:"Which Sea separates Europe and Africa?",
             correctAnswer: "The Mediterranean Sea",
             difficulty: 2,
@@ -369,7 +375,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             difficulty: 3,
             options: ["55 miles", "36 miles", "105 miles", "82 miles"], 
         },
-        { //this is question 7
+        { // 7
             question:"Which is the tallest Mountain in the United Kingdom?",
             correctAnswer: "Ben Nevis",
             difficulty: 3,
@@ -394,6 +400,32 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
             options: ["8", "5", "6", "10"], 
         },
     ];
+
+//put in loop to go through questions 1 to 10 per difficulty
+ //Questions by topic
+
+
+//put in a stop at end of 10 questions to end the game 
+
+
+
+}
+
+function checkAnswer (){
+
+    let answer1 = document.getElementById("answer1");
+    let answer2 = document.getElementById("answer2");
+    let answer3 = document.getElementById("answer3");
+    let answer4 = document.getElementById("answer4");
+
+    var answer = correctAnswer.value;
+    
+}
+
+
+
+function endGame(){
+
 }
 
 function correctAnswer () {
@@ -405,16 +437,8 @@ function incorrectAnswer () {
 }
 
 
-
-
 //Collecting constant elements needed before putting into functions
 
-//Start Game buttons
-
-//Rules
-const basicRules = document.getElementById("basic-knowledge-rules");
-const intermediateRules = document.getElementById("intermediate-rules");
-const geniusRules = document.getElementById("geography-genius-rules");
 
 //Input and container elements
 
