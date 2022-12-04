@@ -145,12 +145,17 @@ function confirmQuiz(){
     <button id="change-btn" class="change-btn">CHANGE DIFFICULTY</button>
     </div>
     `;
-        document.getElementById("start-btn").addEventListener("click", function(event){
+
+    let startGame = document.getElementById("start-btn");
+
+        startGame.addEventListener("click", function(event){
         event.preventDefault();
         displayQuestion();
     });
 
-        document.getElementById("change-btn").addEventListener("click", function(event){
+    let changeDifficulty = document.getElementById("change-btn");
+
+        changeDifficuly.addEventListener("click", function(event){
         event.preventDefault();
         selectDifficulty();
         });
@@ -194,6 +199,13 @@ Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
 </p>
 <button id="answer-check" type="button">Check Answer</button>
 `;
+
+//When user clicks the check answer button
+let confirmAnswer = document.getElementById("answer-check");
+    confirmAnswer.addEventListener("click", function(event) {
+    event.preventDefault();
+    //ADD IF statemenet here depending on correct or incorrect answer selected 
+})
 
 }
 
