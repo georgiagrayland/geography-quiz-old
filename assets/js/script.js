@@ -171,7 +171,8 @@ function confirmQuiz(){
 
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
     let questionNumber = document.getElementById("question-number");
-    let currentQuestion =  selectQuestion (difficulty, questions, questionNumber);
+    let currentQuestion =  selectQuestion (question, questionNumber);
+    let currentAnswer = selectQuestion(correctAnswer);
 
     //Code to display the current question 
     gameArea.innerHTML=
@@ -453,10 +454,30 @@ function endGame(){
 }
 
 function correctAnswerMessage () { 
+//Display message and show next question button
+gameArea.innerHTML =
+`
+<h3 id="answer-type">Correct!</h3> 
+<p>${currentAnswer} was the correct answer.</p>
+<button id="continue" type="submit">Next Question</button>
+`;
+
+    //Wait for user to click next question button
+    let continueGame = document.getElementById("continue");
+    continueGame.addEventListener("click", function(event){
+        event.preventDefault();
+        questionNumber++
+        correctScore++
+        displayQuestion(questionNumber, correctScore, incorrectScore);
+    });
 
 }
 
 function incorrectAnswer () {
+//Display message and show next question button 
+gameArea.innerHTML =
+`
+`
 
 }
 
