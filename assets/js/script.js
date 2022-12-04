@@ -453,18 +453,19 @@ function endGame(){
 
 }
 
-function correctAnswerMessage () { 
+function correctAnswerMessage (currentAnswer, username, questionNumber, correctScore, incorrectScore) { 
 //Display message and show next question button
 gameArea.innerHTML =
 `
 <h3 id="answer-type">Correct!</h3> 
-<p>${currentAnswer} was the correct answer.</p>
+<p>${currentAnswer} is right.
+Move on for more!</p>
 <button id="continue" type="submit">Next Question</button>
 `;
 
     //Wait for user to click next question button
     let continueGame = document.getElementById("continue");
-    continueGame.addEventListener("click", function(event){
+        continueGame.addEventListener("click", function(event){
         event.preventDefault();
         questionNumber++
         correctScore++
@@ -473,11 +474,25 @@ gameArea.innerHTML =
 
 }
 
-function incorrectAnswer () {
+function incorrectAnswer (currentAnswer, username, questionNumber, correctScore, incorrectScore) {
 //Display message and show next question button 
 gameArea.innerHTML =
-`
-`
+
+//Display message and show next question button
+gameArea.innerHTML =
+`<h3 id="answer-type">Incorrect Answer</h3> 
+    <p>${currentAnswer} was the correct answer.</p>
+    <button id="continue" type="submit">Next Question</button>
+`;
+
+    //Wait for user to click next question button
+    let continueGame = document.getElementById("continue");
+        continueGame.addEventListener("click", function(event){
+        event.preventDefault();
+        questionNumber++
+        incorrectScore++
+        displayQuestion(questionNumber, correctScore, incorrectScore);
+    });
 
 }
 
