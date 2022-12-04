@@ -108,6 +108,8 @@ controlArea.innerHTML =
 </div>
 `;
 
+let selectedDifficulty = document.getElementsByClassName("difficulty").value;
+
 let basic = document.getElementById("basic-knowledge-btn");
 let basicDifficulty = basic.getAttribute("id");
 
@@ -157,7 +159,7 @@ function confirmQuiz(){
 
     let changeDifficulty = document.getElementById("change-btn");
 
-        changeDifficuly.addEventListener("click", function(event){
+        changeDifficulty.addEventListener("click", function(event){
         event.preventDefault();
         selectDifficulty();
         });
@@ -169,7 +171,7 @@ function confirmQuiz(){
  */
 
 function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker) {
-    let currentQuestion =  selectQuestion (questions, questionTracker, timer) 
+    let currentQuestion =  selectQuestion (difficulty, questions, questionTracker, timer) 
 
     //Code to display the current question 
     gameArea.innerHTML=
@@ -401,15 +403,31 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
         },
     ];
 
-//put in loop to go through questions 1 to 10 per difficulty
- //Questions by topic
 
- 
+//put in loop to go through questions 1 to 10 per difficulty
+ //Go through Questions by difficulty selected
+ let questionsbyDifficulty = [];
+ for(let quesiton of questions){
+    if (question.difficulty === selectedDifficulty){
+    questionsbyDifficulty.push(quesiton);
+ }
+}
 
 //put in a stop at end of 10 questions to end the game 
 
 
 
+//ADD LISTENER FOR USER TO CLICK 'CHECK ANSWER' - go to the check answer function
+
+let confirmAnswer = document.getElementById("answer-check");
+confirmAnswer.addEventListener("click", function(event){
+    event.preventDefault();
+    if(confirmAnswer() === currentQuestion.correctAnswer){
+        correctAnswerMessage;
+    } else{
+        incorrectAnswer;
+    }
+});
 }
 
 function checkAnswer (){
