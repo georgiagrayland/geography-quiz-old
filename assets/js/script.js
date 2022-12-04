@@ -404,6 +404,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
 //put in loop to go through questions 1 to 10 per difficulty
  //Questions by topic
 
+ 
 
 //put in a stop at end of 10 questions to end the game 
 
@@ -413,13 +414,21 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
 
 function checkAnswer (){
 
+    //Do we need this??
     let answer1 = document.getElementById("answer1");
     let answer2 = document.getElementById("answer2");
     let answer3 = document.getElementById("answer3");
     let answer4 = document.getElementById("answer4");
 
-    var answer = correctAnswer.value;
-    
+    //.checked code for the radio button inspired by discussions on stack overflow
+    let correctAnswer = selectQuestion.questions.correctAnswer
+    if (correctAnswer.checked) {
+        alert("Correct Answer!");
+    correctAnswerMessage();
+    } else {
+        alert("That's not right");
+        incorrectAnswer();
+    }
 }
 
 
@@ -428,7 +437,7 @@ function endGame(){
 
 }
 
-function correctAnswer () {
+function correctAnswerMessage () { 
 
 }
 
