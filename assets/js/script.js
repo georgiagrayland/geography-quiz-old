@@ -29,7 +29,7 @@ function createUsername() {
 
     //Listen for submission of username
 
-    let submitUsername = document.getElementById("submit-form")
+    let submitUsername = document.getElementById("submit-form");
     submitUsername.addEventListener("click", function(event) {
     event.preventDefault();
     submitUsername();
@@ -43,6 +43,8 @@ let username = document.getElementById("username-choice");
     if(username.value === "") {
         alert("You have not entered a username, Player 1 is the default");
         username.value = "Player 1";
+    } else {
+        displayRules();
     }
 
 //If reset username button clicked 
@@ -52,11 +54,6 @@ let username = document.getElementById("username-choice");
         event.preventDefault();
         createUsername();
     });
-
-submitUsername.addEventListener("click", function(event){
-    event.preventDefault();
-    displayRules();
-});
 }
 
 //Display rules to the user 
@@ -170,16 +167,23 @@ function confirmQuiz(){
  * 
  */
 
-function displayQuestion (questionNumber, correctScore, incorrectScore, timer, questionTracker) {
-    let currentQuestion =  selectQuestion (difficulty, questions, questionTracker, timer) 
+
+
+function displayQuestion (questionNumber, correctScore, incorrectScore) {
+    let questionNumber = document.getElementById("question-number");
+    let currentQuestion =  selectQuestion (difficulty, questions, questionNumber);
 
     //Code to display the current question 
     gameArea.innerHTML=
     `
-    <p id="question-number">Question ${questionTracker}  /10</p>
-    <p id="current-question">${currentQuestion.question}</p>
     
-    <div>
+    <div id="content-box">
+        <div id="game-info">
+            <div id="question-counter">
+                <h3>Question: <span id="question-number"></span></h3>
+            </div>
+        <div id="current-question">${currentQuestion.question}</div>
+    <br>
     <form method="POST" action="">
     <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
     <label for="answer1">${currentQuestion.options[0]}"</label>
@@ -190,29 +194,29 @@ function displayQuestion (questionNumber, correctScore, incorrectScore, timer, q
     <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[2]}">
     <label for="answer3">${currentQuestion.options[2]}"</label>
     <br>
-    <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[3]}">
+    <input type="radio" id="answer4" name="answer" value="${currentQuestion.options[3]}">
     <label for="answer4">${currentQuestion.options[3]}"</label>
     </form>
     </div>
+    <p id="score-count" class="trackers">
+        Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
+    </p>
+</div>
     `;
 
 // Add code that will display score, timer, and check answer buttons 
 
 controlArea.innerHTML =
 `
-<p id="score-count" class="trackers">
-Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
-</p>
 <button id="answer-check" type="button">Check Answer</button>
 `;
 
 let displayedScore = document.getElementById("score-count");
-
 //When user clicks the check answer button
 let confirmAnswer = document.getElementById("answer-check");
     confirmAnswer.addEventListener("click", function(event) {
     event.preventDefault();
-    //ADD IF statemenet here depending on correct or incorrect answer selected 
+    checkAnswer();
 })
 
 }
@@ -413,33 +417,26 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
  }
 }
 
+if (questionNumber < selectedDifficulty.length){
+    return selectedDifficulty.question[questions.question]
+} else if (questionNumber === selectedDifficulty.length){
+    endGame();
+}
+}
 //put in a stop at end of 10 questions to end the game 
 
 
 
-//ADD LISTENER FOR USER TO CLICK 'CHECK ANSWER' - go to the check answer function
 
-let confirmAnswer = document.getElementById("answer-check");
-confirmAnswer.addEventListener("click", function(event){
-    event.preventDefault();
-    if(confirmAnswer() === currentQuestion.correctAnswer){
-        correctAnswerMessage;
-    } else{
-        incorrectAnswer;
-    }
-});
-}
 
 function checkAnswer (){
 
     //Do we need this??
-    let answer1 = document.getElementById("answer1");
-    let answer2 = document.getElementById("answer2");
-    let answer3 = document.getElementById("answer3");
-    let answer4 = document.getElementById("answer4");
+    let selectedAnswer = selectQuestion.questions.options;
+    let correctAnswer = selectQuestion.questions.correctAnswer;
 
     //.checked code for the radio button inspired by discussions on stack overflow
-    let correctAnswer = selectQuestion.questions.correctAnswer
+
     if (correctAnswer.checked) {
         alert("Correct Answer!");
     correctAnswerMessage();
@@ -462,6 +459,9 @@ function correctAnswerMessage () {
 function incorrectAnswer () {
 
 }
+
+function showResults();
+
 
 
 //Collecting constant elements needed before putting into functions
