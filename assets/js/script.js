@@ -168,19 +168,33 @@ function displayQuestion (questionNumber, correctScore, incorrectScore, timer, q
     gameArea.innerHTML=
     `
     <p id="current-question">${currentQuestion}</p>
+    <div>
     <form method="POST" action="">
-    <label for="answer1">${currentQuestion.options[0]}"</label>
     <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
-    <label for="answer2">${currentQuestion.options[1]}"</label>
+    <label for="answer1">${currentQuestion.options[0]}"</label>
+    <br>
     <input type="radio" id="answer2" name="answer" value="${currentQuestion.options[1]}">
-    <label for="answer3">${currentQuestion.options[2]}"</label>
+    <label for="answer2">${currentQuestion.options[1]}"</label>
+    <br>
     <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[2]}">
-    <label for="answer4">${currentQuestion.options[3]}"</label>
+    <label for="answer3">${currentQuestion.options[2]}"</label>
+    <br>
     <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[3]}">
+    <label for="answer4">${currentQuestion.options[3]}"</label>
     </form>
+    </div>
     `;
 
 // Add code that will display score, timer, and check answer buttons 
+
+controlArea.innerHTML =
+`
+<p id="score-count" class="trackers">
+Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
+</p>
+<button id="answer-check" type="button">Check Answer</button>
+`;
+
 }
 
 
