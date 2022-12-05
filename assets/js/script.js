@@ -170,9 +170,12 @@ function confirmQuiz(){
 
 
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
-    let questionNumber = document.getElementById("question-number");
-    let currentQuestion =  selectQuestion (question, questionNumber);
+
+    let questionNumber = document.getElementById("question-number").value = 1;
+    let currentQuestion = selectQuestion(question, questionNumber);
     let currentAnswer = selectQuestion(correctAnswer);
+    let correctScore = 0;
+    let incorrectScore = 0;
 
     //Code to display the current question 
     gameArea.innerHTML=
