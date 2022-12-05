@@ -9,8 +9,7 @@ function createUsername() {
 
 start.addEventListener("click", function(e) {
     e.preventDefault();
-    console.log("getting dstarteee")
-    createUsername()
+    createUsername();
 });
 
 /** Once the user clicks the button to enter the quiz they will be presented with the create username section */
@@ -30,39 +29,35 @@ function createUsername() {
     <div>
     `;
 
-    //Listen for submission of username
-
-    let submitUsername = document.getElementById("submit-form");
-    let username = document.getElementById("username-choice").innerText;
-
-    submitUsername.addEventListener("click", function(event) {
-    event.preventDefault();
-    confirmUsername(username);
-    });
+    let username = document.getElementById("username-choice");
 }
 
 /**Function that will allow the user to submit a username when a value has been input and move on to rules section */
 
-function confirmUsername() {
-//check a username has been entered before submitting
-
-    if(username.valueOf === "") {
+function confirmUsername(username) {
+    //check a username has been entered before submitting
+    if(username === "") {
         alert("You have not entered a username, please choose a username");
-    } else {
-        displayRules();
     }
 
-//If reset username button clicked 
+    //If reset username button clicked 
     let resetUsername = document.getElementById("reset-form");
 
         resetUsername.addEventListener("click", function(event) {
         event.preventDefault();
         createUsername();
     });
+
+    //When valid username is entered
+    let submitUsername = document.getElementById("submit-form");
+        submitUsername.addEventListener("click", function(event) {
+        event.preventDefault();
+        displayRules(username);
+    });
 }
 
 /** Display the rules and create button to move into difficulty selector  */
-function displayRules(){
+function displayRules(username){
 
     gameArea.innerHTML = 
     `
