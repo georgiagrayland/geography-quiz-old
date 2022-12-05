@@ -52,12 +52,12 @@ function confirmUsername(username) {
     let submitUsername = document.getElementById("submit-form");
         submitUsername.addEventListener("click", function(event) {
         event.preventDefault();
-        displayRules(username);
+        displayRules(username.value);
     });
 }
 
 /** Display the rules and create button to move into difficulty selector  */
-function displayRules(username){
+function displayRules(username) {
 
     gameArea.innerHTML = 
     `
@@ -82,15 +82,16 @@ function displayRules(username){
     let moveOn = document.getElementById("move-on-btn")
         moveOn.addEventListener("click", function(event){
         event.preventDefault();
-        selectDifficulty();
+        selectDifficulty(username);
     });
 
 }
 
 /** User selects a difficutly out of 3 levels which will each display 10 questions and can move on to quiz area */
-function selectDifficulty(username) {
+function selectDifficulty(username) {   
     let difficultyName = document.getElementsByClassName("difficulty");
-gameArea.innerHTML =
+    
+    gameArea.innerHTML =
 `
     <div class="content-box">
     <div>Welcome ${username.value}</p></div>
