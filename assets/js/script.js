@@ -24,9 +24,7 @@ function createUsername() {
     </form>
     <div>
     `;
-
-    //let usernameInput = document.getElementById("username-choice");
-
+    
     //Listen for submission of username
 
     let submitUsername = document.getElementById("submit-form");

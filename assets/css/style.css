@@ -10,7 +10,11 @@
 
 h1{
     font-family: 'Sanchez', sans-serif;
-    font-size: 250%;
+    font-size: 280%;
+    color: #8AF07F;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 body
@@ -25,23 +29,13 @@ body
    font-family: 'ABeeZee', sans-serif;
 }
 
-h1
-{
-    color: #8AF07F;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
 .content-box
 {
     margin: 0 auto;
-    /*display: flex;*/
     text-align: center;
     justify-content: center;
     border-radius: 15px;
     background-color: #C7FFAD;
-    /*background-color: #8AF07F;*/
     border-radius: 10px;
     width: 60%;
 }
@@ -50,6 +44,7 @@ h1
 {
     color: #0B0491;
     padding-top: 30px;
+    font-size: 120%;
 }
 
 #initiate
@@ -60,6 +55,7 @@ h1
     padding: 7px 25px 7px 25px;
     border-radius: 8px;
     margin: 20px;
+    font-family: 'ABeeZee', sans-serif;
 }
 
 #initiate:hover{
