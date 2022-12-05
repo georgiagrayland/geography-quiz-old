@@ -1,7 +1,7 @@
 //start the game event listener
 
 document.getElementById("initiate").addEventListener("click", function(event){
-    event.preventDefault();
+    //event.preventDefault();
     createUsername();
 });
 
@@ -40,9 +40,9 @@ function createUsername() {
 function submitUsername() {
 //check a username has been entered before submitting
 let username = document.getElementById("username-choice").innerText;
-    if(username.value === "") {
+    if(username.valueOf === "") {
         alert("You have not entered a username, Player 1 is the default");
-        username.value = "Player 1";
+        username.valueOf = "Player 1";
     } else {
         displayRules();
     }
@@ -422,7 +422,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
 if (questionNumber < selectedDifficulty.length){
     return selectedDifficulty.question[questions.question]
 } else if (questionNumber === selectedDifficulty.length){
-    endGame();
+    showResults(correctScore, questionNumber, username);
     }
 }
  
@@ -446,16 +446,9 @@ function checkAnswer (){
 }
 
 
-
-function endGame(){
-
-//put in the function that takes the user to the results page after answering 10 questions 
-
-
-}
-
+/** Display message when correct answer is chosen and show next question button */
 function correctAnswerMessage (currentAnswer, username, questionNumber, correctScore, incorrectScore) { 
-//Display message and show next question button
+//Message and next question button
 gameArea.innerHTML =
 `
 <h3 id="answer-type">Correct!</h3> 
@@ -475,9 +468,8 @@ Move on for more!</p>
 
 }
 
+/** Display message when incorrect answer is chosen and show next question button */
 function incorrectAnswer (currentAnswer, username, questionNumber, correctScore, incorrectScore) {
-//Display message and show next question button 
-gameArea.innerHTML =
 
 //Display message and show next question button
 gameArea.innerHTML =
@@ -488,7 +480,7 @@ gameArea.innerHTML =
 
     //Wait for user to click next question button
     let continueGame = document.getElementById("continue");
-        continueGame.addEventListener("click", function(event){
+        continueGame.addEventListener("click", function(event) {
         event.preventDefault();
         questionNumber++
         incorrectScore++
@@ -497,12 +489,29 @@ gameArea.innerHTML =
 
 }
 
+/**Function that displays results page once all 10 questions have been answered  */
 function showResults(); {
 
-    //Function to show results page at the end (inner HTML message with username and score)
+   gameArea.innerHTML =
+   `
+   <div id="content-box">
+    <div id="end-message">
+        <h2>You have finished the quiz, thank you for playing</h2>
+    </div>
+    <div id="result-messsage">
+        <p>Congratulations, ${username}, <br> you scored ${correctScore} out of 10.</p>
+    </div>
+   <button id="new-game" type="submit">Play Again</button>
+   </div>
+   `;
 
-    //Add button to take user back to difficulty selector page 
-
+    //Listener to start a new game 
+    
+    let playAgain = document.getElementById("new-game");
+    playAgain.addEventListener("click", function(event){
+        event.preventDefault();
+        selectDifficulty(username);
+    });
 }
 
 
