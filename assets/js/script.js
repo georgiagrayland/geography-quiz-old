@@ -30,7 +30,7 @@ function createUsername() {
     let submitUsername = document.getElementById("submit-form");
     submitUsername.addEventListener("click", function(event) {
     event.preventDefault();
-    submitUsername();
+    submitUsername(username);
 });
 }
 
@@ -93,14 +93,13 @@ gameArea.innerHTML =
     <div>Welcome ${username.value}</p></div>
         <h2>Please choose a difficulty level:</h2>
         </div>
-`;
-
-controlArea.innerHTML =
-`<div class="button">
-<button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button>
-<button id="intermediate-btn" class="difficulty" value="2">Intermediate</button>
-<button id="geography-genius-btn" class="difficulty" value="2">Geography Genius</button>
-</div>
+ 
+       <div class="button">
+        <button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button>
+        <button id="intermediate-btn" class="difficulty" value="2">Intermediate</button>
+        <button id="geography-genius-btn" class="difficulty" value="2">Geography Genius</button>
+        </div>
+    </div>
 `;
 
 let selectedDifficulty = document.getElementsByClassName("difficulty");
@@ -161,10 +160,9 @@ function confirmQuiz(){
 }
 
 
-/** To display the current question, score and check answer
+/** To display the current question, score and create check answer button
  * 
  */
-
 
 
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
@@ -203,15 +201,9 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
     <p id="score-count" class="trackers">
         Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
     </p>
+    <button id="answer-check" type="button">Check Answer</button>
 </div>
     `;
-
-// Add code that will display score and check answer buttons 
-
-controlArea.innerHTML =
-`
-<button id="answer-check" type="button">Check Answer</button>
-`;
 
 let displayedScore = document.getElementById("score-count");
 //When user clicks the check answer button
@@ -432,7 +424,7 @@ if (questionNumber < selectedDifficulty.length){
 function checkAnswer (){
 
     //Do we need this??
-    let selectedAnswer = selectQuestion.questions.options;
+    let selectedAnswer = selectQuestion.questions.options.checked;
     let correctAnswer = selectQuestion.questions.correctAnswer;
 
     //.checked code for the radio button inspired by discussions on stack overflow
