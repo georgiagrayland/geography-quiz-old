@@ -1,12 +1,17 @@
-//start the game event listener
-const start = document.getElementById("initiate");
-    start.addEventListener("click", function(e) {
-    e.preventDefault();
-    console.log("testing my javascript")
-    createUsername
-});
+//Starting the game event listener
+let start = document.getElementById("initiate");
+let gameArea = document.querySelector(".content-box");
+function createUsername() {
+    console.log("ggg", gameArea)
+    gameArea.innerHTML ="name"
 
-let gameArea = document.getElementsByClassName("content-box");
+}
+
+start.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log("getting dstarteee")
+    createUsername()
+});
 
 /** Once the user clicks the button to enter the quiz they will be presented with the create username section */
 
@@ -28,17 +33,19 @@ function createUsername() {
     //Listen for submission of username
 
     let submitUsername = document.getElementById("submit-form");
+    let username = document.getElementById("username-choice").innerText;
+
     submitUsername.addEventListener("click", function(event) {
     event.preventDefault();
-    submitUsername(username);
-});
+    confirmUsername(username);
+    });
 }
 
 /**Function that will allow the user to submit a username when a value has been input and move on to rules section */
 
-function submitUsername() {
+function confirmUsername() {
 //check a username has been entered before submitting
-let username = document.getElementById("username-choice").innerText;
+
     if(username.valueOf === "") {
         alert("You have not entered a username, please choose a username");
     } else {
