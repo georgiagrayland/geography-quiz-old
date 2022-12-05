@@ -2,7 +2,7 @@
 const start = document.getElementById("initiate");
     start.addEventListener("click", function(event){
     //event.preventDefault();
-    createUsername;
+    createUsername();
 });
 
 let gameArea = document.getElementsByClassName("content-box");
@@ -33,6 +33,7 @@ function createUsername() {
 });
 }
 
+/**Function that will allow the user to submit a username when a value has been input and move on to rules section */
 
 function submitUsername() {
 //check a username has been entered before submitting
@@ -53,7 +54,7 @@ let username = document.getElementById("username-choice").innerText;
     });
 }
 
-//Display rules to the user 
+/** Display the rules and create button to move into difficulty selector  */
 function displayRules(){
 
     gameArea.innerHTML = 
@@ -84,6 +85,7 @@ function displayRules(){
 
 }
 
+/** User selects a difficutly out of 3 levels which will each display 10 questions and can move on to quiz area */
 function selectDifficulty(username) {
     let difficultyName = document.getElementsByClassName("difficulty");
 gameArea.innerHTML =
@@ -216,7 +218,7 @@ let confirmAnswer = document.getElementById("answer-check");
 }
 
 
-//this is where the questions are returned correct or incorrect 
+/**Stored questions, correct answers, and all options/incorrect answers */
 function selectQuestion(selectedDifficulty, questionNumber, correctScore, username) {
     let questions = [
         {
@@ -420,7 +422,7 @@ if (questionNumber < selectedDifficulty.length){
 }
  
 
-
+/**listens for if user has selected correct answer or not and move to answer message */
 function checkAnswer (){
 
     //Do we need this??
