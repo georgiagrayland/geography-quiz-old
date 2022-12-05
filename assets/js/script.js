@@ -6,7 +6,6 @@ const start = document.getElementById("initiate");
 });
 
 let gameArea = document.getElementsByClassName("content-box");
-let controlArea = document.getElementsByClassName("button");
 
 /** Once the user clicks to enter the quiz they will be presented with the create username section */
 
@@ -117,24 +116,23 @@ let geniusDifficulty = genius.getAttribute("id");
 
 basic.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion(basicDifficulty, username, questionTracker, timer);
+    displayQuestion(basicDifficulty, username, questionNumber, currentQuestion);
     });
 
 intermediate.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion(intermediateDifficulty, username, questionTracker, timer);
+    displayQuestion(intermediateDifficulty, username, questionNumber, currentQuestion);
     });
 
 genius.addEventListener("click", function(event) {
-        event.preventDefault();
-        displayQuestion(geniusDifficulty, username, questionTracker, timer);
+    event.preventDefault();
+    displayQuestion(geniusDifficulty, username, questionNumber, currentQuestion);
     });
 
 }
 
 function confirmQuiz(){
 
-    
     gameArea.innerHTML =
     `<div class="content-box">
                 <h3 id="difficulty-title">You have chosen the ${difficultyName}</h3>
@@ -148,7 +146,7 @@ function confirmQuiz(){
 
         startGame.addEventListener("click", function(event){
         event.preventDefault();
-        displayQuestion();
+        displayQuestion(selectedDifficulty, currentQuestion, );
     });
 
     let changeDifficulty = document.getElementById("change-btn");
@@ -168,7 +166,7 @@ function confirmQuiz(){
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
 
     let questionNumber = document.getElementById("question-number").value = 1;
-    let currentQuestion = selectQuestion(question, questionNumber);
+    let currentQuestion = selectQuestion(selectedDifficulty, question, questionNumber);
     let currentAnswer = selectQuestion(correctAnswer);
     let correctScore = 0;
     let incorrectScore = 0;
@@ -182,7 +180,9 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
             <div id="question-counter">
                 <h3>Question: <span id="question-number"></span></h3>
             </div>
-        <div id="current-question">${currentQuestion.question}</div>
+            <div id="current-question">${currentQuestion.question}</div>
+        </div>
+        <hr> 
     <br>
     <form method="POST" action="">
     <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
@@ -202,7 +202,7 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
         Correct answers: ${correctScore} / Incorrect Answers: ${incorrectScore}
     </p>
     <button id="answer-check" type="button">Check Answer</button>
-</div>
+    </div>
     `;
 
 let displayedScore = document.getElementById("score-count");
@@ -444,10 +444,12 @@ function correctAnswerMessage (currentAnswer, username, questionNumber, correctS
 //Message and next question button
 gameArea.innerHTML =
 `
+<div id="content-box">
 <h3 id="answer-type">Correct!</h3> 
 <p>${currentAnswer} is right.
 Move on for more!</p>
 <button id="continue" type="submit">Next Question</button>
+</div>
 `;
 
     //Wait for user to click next question button
@@ -466,9 +468,12 @@ function incorrectAnswer (currentAnswer, username, questionNumber, correctScore,
 
 //Display message and show next question button
 gameArea.innerHTML =
-`<h3 id="answer-type">Incorrect Answer</h3> 
+`
+<div id="content-box">
+<h3 id="answer-type">Incorrect Answer</h3> 
     <p>${currentAnswer} was the correct answer.</p>
     <button id="continue" type="submit">Next Question</button>
+    </div>
 `;
 
     //Wait for user to click next question button
