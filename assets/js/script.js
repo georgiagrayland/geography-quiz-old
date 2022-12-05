@@ -205,7 +205,7 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
 </div>
     `;
 
-// Add code that will display score, timer, and check answer buttons 
+// Add code that will display score and check answer buttons 
 
 controlArea.innerHTML =
 `
@@ -218,7 +218,7 @@ let confirmAnswer = document.getElementById("answer-check");
     confirmAnswer.addEventListener("click", function(event) {
     event.preventDefault();
     checkAnswer();
-})
+});
 
 }
 
@@ -420,7 +420,7 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
 
 //Stop at end of 10 questions per difficulty chosen
 if (questionNumber < selectedDifficulty.length){
-    return selectedDifficulty.question[questions.question]
+    return selectedDifficulty.question[questions.question];
 } else if (questionNumber === selectedDifficulty.length){
     showResults(correctScore, questionNumber, username);
     }
@@ -461,8 +461,8 @@ Move on for more!</p>
     let continueGame = document.getElementById("continue");
         continueGame.addEventListener("click", function(event){
         event.preventDefault();
-        questionNumber++
-        correctScore++
+        questionNumber++;
+        correctScore++;
         displayQuestion(questionNumber, correctScore, incorrectScore);
     });
 
@@ -482,8 +482,8 @@ gameArea.innerHTML =
     let continueGame = document.getElementById("continue");
         continueGame.addEventListener("click", function(event) {
         event.preventDefault();
-        questionNumber++
-        incorrectScore++
+        questionNumber++;
+        incorrectScore++;
         displayQuestion(questionNumber, correctScore, incorrectScore);
     });
 
