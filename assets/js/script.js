@@ -105,7 +105,7 @@ controlArea.innerHTML =
 </div>
 `;
 
-let selectedDifficulty = document.getElementsByClassName("difficulty").value;
+let selectedDifficulty = document.getElementsByClassName("difficulty");
 
 let basic = document.getElementById("basic-knowledge-btn");
 let basicDifficulty = basic.getAttribute("id");
@@ -418,16 +418,14 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
  }
 }
 
+//Stop at end of 10 questions per difficulty chosen
 if (questionNumber < selectedDifficulty.length){
     return selectedDifficulty.question[questions.question]
 } else if (questionNumber === selectedDifficulty.length){
     endGame();
+    }
 }
-}
-//put in a stop at end of 10 questions to end the game 
-
-
-
+ 
 
 
 function checkAnswer (){
@@ -450,6 +448,9 @@ function checkAnswer (){
 
 
 function endGame(){
+
+//put in the function that takes the user to the results page after answering 10 questions 
+
 
 }
 
@@ -496,17 +497,22 @@ gameArea.innerHTML =
 
 }
 
-function showResults();
+function showResults(); {
+
+    //Function to show results page at the end (inner HTML message with username and score)
+
+    //Add button to take user back to difficulty selector page 
+
+}
+
+
 
 
 
 //Collecting constant elements needed before putting into functions
 
-
-//Input and container elements
-
 const questionTracker = document.getElementById("question-number");
-const timer = document.getElementById("question-timer");
+
 
 
 
