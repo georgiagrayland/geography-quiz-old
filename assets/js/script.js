@@ -1,13 +1,14 @@
 //start the game event listener
 const start = document.getElementById("initiate");
-    start.addEventListener("click", function(event){
-    //event.preventDefault();
-    createUsername();
+    start.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log("testing my javascript")
+    createUsername
 });
 
 let gameArea = document.getElementsByClassName("content-box");
 
-/** Once the user clicks to enter the quiz they will be presented with the create username section */
+/** Once the user clicks the button to enter the quiz they will be presented with the create username section */
 
 function createUsername() {
     gameArea.innerHTML =
@@ -39,8 +40,7 @@ function submitUsername() {
 //check a username has been entered before submitting
 let username = document.getElementById("username-choice").innerText;
     if(username.valueOf === "") {
-        alert("You have not entered a username, Player 1 is the default");
-        username.valueOf = "Player 1";
+        alert("You have not entered a username, please choose a username");
     } else {
         displayRules();
     }
@@ -167,11 +167,11 @@ function confirmQuiz(){
 
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
 
-    let questionNumber = document.getElementById("question-number").value = 1;
+    //let questionNumber = document.getElementById("question-number").value = 1;
     let currentQuestion = selectQuestion(selectedDifficulty, question, questionNumber);
     let currentAnswer = selectQuestion(correctAnswer);
-    let correctScore = 0;
-    let incorrectScore = 0;
+    //let correctScore = 0;
+    //let incorrectScore = 0;
 
     //Code to display the current question 
     gameArea.innerHTML=
@@ -490,7 +490,7 @@ gameArea.innerHTML =
 }
 
 /**Function that displays results page once all 10 questions have been answered  */
-function showResults(); {
+function showResults() {
 
    gameArea.innerHTML =
    `
