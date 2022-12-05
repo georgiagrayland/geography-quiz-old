@@ -1,8 +1,8 @@
 //start the game event listener
-
-document.getElementById("initiate").addEventListener("click", function(event){
+const start = document.getElementById("initiate");
+    start.addEventListener("click", function(event){
     //event.preventDefault();
-    createUsername();
+    createUsername;
 });
 
 let gameArea = document.getElementsByClassName("content-box");
@@ -24,7 +24,7 @@ function createUsername() {
     </form>
     <div>
     `;
-    
+
     //Listen for submission of username
 
     let submitUsername = document.getElementById("submit-form");
