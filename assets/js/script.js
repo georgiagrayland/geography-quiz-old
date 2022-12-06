@@ -104,13 +104,10 @@ function selectDifficulty() {
     <div class="content-box">
     <h3 id="welcome-message">Welcome</h3>
         <h2>Please choose a difficulty level:</h2>
-        </div>
  
-       <div class="button">
-        <button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button>
-        <button id="intermediate-btn" class="difficulty" value="2">Intermediate</button>
-        <button id="geography-genius-btn" class="difficulty" value="3">Geography Genius</button>
-        </div>
+        <button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button><br>
+        <button id="intermediate-btn" class="difficulty" value="2">Intermediate</button><br>
+        <button id="geography-genius-btn" class="difficulty" value="3">Geography Genius</button><br>
     </div>
 `;
 

@@ -108,14 +108,17 @@ input[type=text]
 /** Display rules area **/
 #rules-title
 {
-    font-size: 200%;
+    color: #0B0491;
+    font-size: 170%;
+    padding-top: 15px;
     font-weight: bold;
 }
 
 hr
 {
     color: #0B0491;
-    /**font-weight: ADD THIS HERE ;**/
+    height: 10px;
+    width: 70%;
 }
 
 .rules 
@@ -154,13 +157,14 @@ hr
     padding-right: 10px;
 }
 
-#welcome-message h2
+h2
 {
     color: #0B0491;
     padding-top: 20px;
     font-size: 130%;
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 15px;
 }
 
 
@@ -171,8 +175,8 @@ hr
     font-size: 20px;
     padding: 7px 25px 7px 25px;
     border-radius: 8px;
-    margin: 20px;
     width: 200px;
+    margin: 0 auto;
     font-family: "ABeeZee", sans-serif;
     display: block;
 }
