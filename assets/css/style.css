@@ -229,7 +229,6 @@ hr
     border-radius: 8px;
     margin: 20px;
     width: 200px;
-    display: block;
     font-family: "ABeeZee", sans-serif;
 }
 
@@ -245,6 +244,8 @@ hr
     color: #0B0491;
     font-size: 150%;
     font-weight: bold;
+    border: 1px solid #0B0491;
+    border-radius: 3px;
 }
 
 #result-message
@@ -252,6 +253,23 @@ hr
     color: #0B0491;
     font-size: 140%;
     font-weight: bold;
+}
+
+#new-game
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+    width: 250px;
+    font-family: "ABeeZee", sans-serif;
+}
+
+#new-game:hover
+{
+    background-color: #7B00FF;
 }
 
 
