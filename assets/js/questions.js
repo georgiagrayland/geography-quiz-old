@@ -203,62 +203,102 @@ const questions = [
     },
     {//start of hardest difficulty questions 
         question:"What is the oldest city in the world?",
-        correctAnswer: "Damascus",
-        difficulty: geniusDifficulty,
-        options: ["Dublin", "Florence", "Damascus", "London"], 
+        answers: [
+            {option: "Dublin", answer: false},
+            {option: "Florence", answer: false},
+            {option: "Damascus", answer: true},
+            {option: "London", answer: false},
+        ],
+        difficulty: geniusDifficulty
     },
     { 
         question:"Which country has the highest number of Capital Cities?",
-        correctAnswer: "South Africa",
-        difficulty: geniusDifficulty,
-        options: ["Greece", "Algeria", "Colombia", "South Africa"], 
+        answers: [
+            {option: "Algeria", answer: false},
+            {option: "Greece", answer: false},
+            {option: "Colombia", answer: false},
+            {option: "South Africa", answer: true},
+        ],
+        difficulty: geniusDifficulty 
     },
     { 
         question:"What is the Earth's approximate water to land ratio?",
-        correctAnswer: "71:29",
-        difficulty: geniusDifficulty,
-        options: ["71:29", "35:65", "57:33", "42:58"], 
+        answers: [
+            {option: "71:29", answer: true},
+            {option: "35:65", answer: false},
+            {option: "57:33", answer: false},
+            {option: "42:58", answer: false},
+        ],
+        difficulty: geniusDifficulty 
     },
     { 
         question:"What is the name of the supercontinent that existed 200 million years ago?",
-        correctAnswer: "Pangea",
-        difficulty: geniusDifficulty,
-        options: ["Eurasia", "Rodinia", "Pangea", "Gondwana"], 
+        answers: [
+            {option: "Eurasia", answer: false},
+            {option: "Pangea", answer: true},
+            {option: "Rodinia", answer: false},
+            {option: "Gondwana", answer: false},
+        ],
+        difficulty: geniusDifficulty
     },
     { 
         question:"Which country has the greatest number of international land borders?",
-        correctAnswer: "China",
-        difficulty: geniusDifficulty,
-        options: ["France", "China", "Peru", "Indonseia"], 
+        answers: [
+            {option: "China", answer: true},
+            {option: "Peru", answer: false},
+            {option: "Indonesia", answer: false},
+            {option: "France", answer: false},
+        ],
+        difficulty: geniusDifficulty
     },
     { 
         question:"What is the distance between the USA and Russia at the narrowest point (The Bering Strait)?",
-        correctAnswer: "55 miles",
-        difficulty: geniusDifficulty,
-        options: ["55 miles", "36 miles", "105 miles", "82 miles"], 
+        answers: [
+            {option: "82 miles", answer: false},
+            {option: "105 miles", answer: false},
+            {option: "55 miles", answer: true},
+            {option: "36 miles", answer: false},
+        ],
+        difficulty: geniusDifficulty 
     },
     { // 7
         question:"Which is the tallest Mountain in the United Kingdom?",
-        correctAnswer: "Ben Nevis",
-        difficulty: geniusDifficulty,
-        options: ["Great Gable", "Scafell Pike", "Snowdon", "Ben Nevis"], 
+        answers: [
+            {option: "Great Gable", answer: false},
+            {option: "Scafell Pike", answer: false},
+            {option: "Snowdon", answer: false},
+            {option: "Ben Nevis", answer: true},
+        ],
+        difficulty: geniusDifficulty 
     },
     { //8
         question:"What is the currency of Sweden?",
-        correctAnswer: "Krona",
-        difficulty: geniusDifficulty,
-        options: ["Lev", "Krona", "Euro", "Forint"], 
+        answers: [
+            {option: "Lev", answer: false},
+            {option: "Forint", answer: false},
+            {option: "Krone", answer: true},
+            {option: "Euro", answer: false},
+        ],
+        difficulty: geniusDifficulty 
     },
     { //9
-        question:"To what country do the Canary Islands belong?",
-        correctAnswer: "Spain",
-        difficulty: geniusDifficulty,
-        options: ["Denmark", "Morocco", "Spain", "Italy"], 
+        question:"To which country do the Canary Islands belong?",
+        answers: [
+            {option: "Morocco", answer: false},
+            {option: "Spain", answer: true},
+            {option: "Italy", answer: false},
+            {option: "Denmark", answer: false},
+        ],
+        difficulty: geniusDifficulty 
     },
     { //10
         question:"To the nearest billion, how large is the world's population?",
-        correctAnswer: "8",
-        difficulty: geniusDifficulty,
-        options: ["8", "5", "6", "10"], 
+        answers: [
+            {option: "6", answer: false},
+            {option: "5", answer: false},
+            {option: "8", answer: true},
+            {option: "10", answer: false},
+        ],
+        difficulty: geniusDifficulty
     },
 ];
