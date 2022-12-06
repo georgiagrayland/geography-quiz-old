@@ -114,7 +114,6 @@ function selectDifficulty() {
 //Listeners for topic buttons when clicked
 
 let difficultyName = document.getElementsByClassName("difficulty");
-let difficulty = document.getElementsByClassName("difficulty");
 
 let basicDifficulty = document.getElementById("basic-knowledge-btn");
     basicDifficulty.addEventListener("click", function(event) {
@@ -143,7 +142,7 @@ let geniusDifficulty = document.getElementById("geography-genius-btn");
 function startGame () {
     let questionSet = [];
     let questionIndex = 0;
-    let difficulty = questionSet[questionIndex].difficulty;
+    let difficultyValue = questions[difficulty];
     currentQuestion = questions.filter((question) => {
         return question.difficulty == difficulty;
         displayQuestion();
@@ -195,6 +194,7 @@ let answer4 = document.getElementById("answer4");
 let displayedScore = document.getElementById("score-count");
 let currentAnswer = questionSet[questionIndex].option === true;
 
+questionNumber.innerHTML = //??
 question.innerHTML = questionSet[questionIndex].question;
 answer1.innerHTML = questionSet[questionIndex].answers[0].option;
 answer2.innerHTML = questionSet[questionIndex].answers[1].option;
@@ -209,9 +209,8 @@ let confirmAnswer = document.getElementById("answer-check");
 
 }
 
-
 /**Stored questions, correct answers, and all options/incorrect answers */
-function selectQuestion(selectedDifficulty, questionNumber, correctScore, username) {
+//function selectQuestion(selectedDifficulty, questionNumber, correctScore, username) {
     
 //put in loop to go through questions 1 to 10 per difficulty
  //Go through Questions by difficulty selected
@@ -222,19 +221,17 @@ function selectQuestion(selectedDifficulty, questionNumber, correctScore, userna
  }
 }
 
-//Stop at end of 10 questions per difficulty chosen
-if (questionNumber < selectedDifficulty.length){
-    return selectedDifficulty.question[questions.question];
-} else if (questionNumber === selectedDifficulty.length){
+//Stop at end of 10 questions per difficulty chosen - trying to detect the difficulty here but is not picking up 
+if (questionNumber < difficultyName.length){
+    return difficulty[questions.question];
+} else if (questionNumber === difficultyName.length){
     showResults(correctScore, questionNumber, username);
     }
-}
+//}
  
 
 /**listens for if user has selected correct answer or not and move to answer message */
 function checkAnswer (){
-
-    //let selectedAnswer = questionSet[questionIndex].answers.checked;??
 
     //.checked code for the radio button inspired by discussions on stack overflow
 
