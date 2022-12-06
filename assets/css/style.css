@@ -8,6 +8,7 @@
     border: none;
 }
 
+/** First Landing Page and background for game **/
 h1{
     font-family: 'Sanchez', sans-serif;
     font-size: 280%;
@@ -45,6 +46,8 @@ body
     color: #0B0491;
     padding-top: 30px;
     font-size: 120%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #initiate
@@ -63,16 +66,12 @@ body
 }
 
 
+/** Create username area **/
 form
 {
     color: #0B0491;
-    padding-top: 10px;
+    padding-top: 15px;
     font-size: 1.5em;
-}
-
-#explain
-{
-    font-size: 1rem;
 }
 
 #username-choice
@@ -104,6 +103,66 @@ input[type=text]
 {
     background-color: crimson;
 }
+
+
+/** Display rules area **/
+#rules-title
+{
+    font-size: 200%;
+    font-weight: bold;
+}
+
+hr
+{
+    color: #0B0491;
+    /**font-weight: ADD THIS HERE ;**/
+}
+
+.rules 
+{
+    color: #0B0491;
+    padding-top: 30px;
+    font-size: 120%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#move-on-btn
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+    font-family: "ABeeZee", sans-serif;
+}
+
+#move-on-btn:hover
+{
+    background-color: crimson;
+}
+
+/** Select Difficultty area **/
+
+#welcome-message
+{
+    color: #0B0491;
+    padding-top: 30px;
+    font-size: 160%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#welcome-message h2
+{
+    color: #0B0491;
+    padding-top: 20px;
+    font-size: 130%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 #basic-knowledge-btn, #intermediate-btn, #geography-genius-btn
 {
@@ -141,3 +200,59 @@ input[type=text]
 {
     background-color: crimson;
 }
+
+/** ADD Style for display questions section**/
+
+
+
+
+/** Correct / Incorrect Answer message **/
+
+#answer-type
+{
+    color: #0B0491;
+    font-size: 130%;
+}
+
+#answer-type p 
+{
+    color: #0B0491;
+    font-size: 120%;
+}
+
+#continue
+{
+    background-color: #0B0491;
+    color: white;
+    font-size: 20px;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    margin: 20px;
+    width: 200px;
+    display: block;
+    font-family: "ABeeZee", sans-serif;
+}
+
+#contine:hover
+{
+    background-color: crimson;
+}
+
+/** Results page **/
+
+#end-message
+{
+    color: #0B0491;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+#result-message
+{
+    color: #0B0491;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+
+/** Add media screens **/

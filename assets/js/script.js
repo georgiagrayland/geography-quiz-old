@@ -1,6 +1,7 @@
 //Starting the game event listener
 let start = document.getElementById("initiate");
 let gameArea = document.querySelector(".content-box");
+let username = document.getElementById("username-choice");
 function createUsername() {
     console.log("ggg", gameArea)
     gameArea.innerHTML ="name"
@@ -28,8 +29,6 @@ function createUsername() {
     </form>
     <div>
     `;
-
-    let username = document.getElementById("username-choice");
 }
 
 /**Function that will allow the user to submit a username when a value has been input and move on to rules section */
@@ -52,7 +51,7 @@ function confirmUsername(username) {
     let submitUsername = document.getElementById("submit-form");
         submitUsername.addEventListener("click", function(event) {
         event.preventDefault();
-        displayRules(username.value);
+        displayRules(username);
     });
 }
 
@@ -62,15 +61,16 @@ function displayRules(username) {
     gameArea.innerHTML = 
     `
     <div class="content-box">
-        <div class="rules-title">
+        <div id="rules-title">
                 <h2>Rules for the Game</h2>
          </div>
+         <hr>
         <div class="rules">
-                    <p>You will have 30 seconds to answer each question</p>
-                    <p>There will be 10 questions per difficulty level</p>
-                    <p>You must only select one answer per question</p>
-                    <p>You cannot change your answer once submitted</p>
-                    <p>You will know if you have chosen the correct answer.</p>
+                    <p>You will have 30 seconds to answer each question</p><br>
+                    <p>There will be 10 questions per difficulty level</p><br>
+                    <p>You must only select one answer per question</p><br>
+                    <p>You cannot change your answer once submitted</p><br>
+                    <p>You will know if you have chosen the correct answer.</p><br>
                 </div>
     </div>
 
@@ -94,14 +94,14 @@ function selectDifficulty(username) {
     gameArea.innerHTML =
 `
     <div class="content-box">
-    <div>Welcome ${username.value}</p></div>
+    <h3 id="welcome-message">Welcome ${username.value}</h3>
         <h2>Please choose a difficulty level:</h2>
         </div>
  
        <div class="button">
         <button id="basic-knowledge-btn" class="difficulty" value="1">Basic Knowledge</button>
         <button id="intermediate-btn" class="difficulty" value="2">Intermediate</button>
-        <button id="geography-genius-btn" class="difficulty" value="2">Geography Genius</button>
+        <button id="geography-genius-btn" class="difficulty" value="3">Geography Genius</button>
         </div>
     </div>
 `;
@@ -136,6 +136,7 @@ genius.addEventListener("click", function(event) {
 
 }
 
+//Do I need this function??? Remove this I think
 function confirmQuiz(){
 
     gameArea.innerHTML =
