@@ -9,31 +9,6 @@ let username = document.getElementById("username-choice");
 let resetUsername = document.getElementById("reset-form");
 let submitUsername = document.getElementById("submit-form");
 
-//Display rules and move on 
-let moveOn = document.getElementById("move-on-btn");
-
-//Difficulty selectors
-let difficultyName = document.getElementsByClassName("difficulty");
-let selectedDifficulty = document.getElementsByClassName("difficulty");
-
-let basicDifficulty = document.getElementById("basic-knowledge-btn");
-
-let intermediateDifficulty = document.getElementById("intermediate-btn");
-
-let geniusDifficulty = document.getElementById("geography-genius-btn");
-
-//Displaying the questions and selecting answer
-let questionSet = [];
-let questionIndex = 0;
-//let currentQuestion = questionSet[questionIndex.questions.question];
-let answer1 = document.getElementById("answer1");
-let answer2 = document.getElementById("answer2");
-let answer3 = document.getElementById("answer3");
-let answer4 = document.getElementById("answer4");
-let displayedScore = document.getElementById("score-count");
-let confirmAnswer = document.getElementById("answer-check");
-let selectedAnswer = selectQuestion.questions.option.checked;
-let currentAnswer = questionSet[answers === true];
 
 
 //Move on to next question after correct/incorrect answer message
@@ -43,9 +18,6 @@ let continueGame = document.getElementById("continue");
 let playAgain = document.getElementById("new-game");
 
 
-//Game variables
-let questionNumber = 1;
-//let questionIndex = 0;
 
 
 //Starting the game event listener
@@ -58,16 +30,17 @@ function createUsername() {
 
 start.addEventListener("click", function(e) {
     e.preventDefault();
-    createUsername();
+    //createUsername();
+    displayRules();
 });
 
-/** Once the user clicks the button to enter the quiz they will be presented with the create username section */
+/** Once the user clicks the button to enter the quiz they will be presented with the create username section 
 
 function createUsername() {
     gameArea.innerHTML =
     `
     <div class="content-box">
-    <form method="POST" action="">
+    <form action="">
         <label for="username-choice">Create a username to start the quiz:</label><br>
         <br>
         <input type="text" id="username-choice" name="username" placeholder="Enter your username here">
@@ -77,9 +50,9 @@ function createUsername() {
     </form>
     <div>
     `;
-}
 
-/**Function that will allow the user to submit a username when a value has been input and move on to rules section */
+
+}
 
 function confirmUsername(username) {
     //check a username has been entered before submitting
@@ -99,6 +72,8 @@ function confirmUsername(username) {
         displayRules(username);
     });
 }
+
+**/
 
 /** Display the rules and create button to move into difficulty selector  */
 function displayRules(username) {
@@ -120,23 +95,24 @@ function displayRules(username) {
     </div>
 
     <div class="button">
-    <button id="move-on-btn" type="submit" class="move-on-btn btn ">START QUIZ</button>
+    <button id="move-on-btn" type="submit" class="move-on-btn btn">START QUIZ</button>
     </div>
     `;
 
+    let moveOn = document.getElementById("move-on-btn");
         moveOn.addEventListener("click", function(event){
         event.preventDefault();
-        selectDifficulty(username);
+        selectDifficulty();
     });
 
 }
 
 /** User selects a difficutly out of 3 levels which will each display 10 questions and can move on to quiz area */
-function selectDifficulty(username) {   
+function selectDifficulty() {   
     gameArea.innerHTML =
 `
     <div class="content-box">
-    <h3 id="welcome-message">Welcome ${username.value}</h3>
+    <h3 id="welcome-message">Welcome</h3>
         <h2>Please choose a difficulty level:</h2>
         </div>
  
@@ -150,19 +126,25 @@ function selectDifficulty(username) {
 
 //Listeners for topic buttons when clicked
 
-basic.addEventListener("click", function(event) {
+let difficultyName = document.getElementsByClassName("difficulty");
+let difficulty = document.getElementsByClassName("difficulty");
+
+let basicDifficulty = document.getElementById("basic-knowledge-btn");
+    basicDifficulty.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion(basicDifficulty, username, questionNumber, currentQuestion);
+    startGame(basicDifficulty);
     });
 
-intermediate.addEventListener("click", function(event) {
+let intermediateDifficulty = document.getElementById("intermediate-btn");
+    intermediateDifficulty.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion(intermediateDifficulty, username, questionNumber, currentQuestion);
+    startGame(intermediateDifficulty);
     });
 
-genius.addEventListener("click", function(event) {
+let geniusDifficulty = document.getElementById("geography-genius-btn");
+    geniusDifficulty.addEventListener("click", function(event) {
     event.preventDefault();
-    displayQuestion(geniusDifficulty, username, questionNumber, currentQuestion);
+    startGame(geniusDifficulty);
     });
 
 }
@@ -171,8 +153,17 @@ genius.addEventListener("click", function(event) {
  * 
  */
 
-function displayQuestion (questionNumber, correctScore, incorrectScore) {
+function startGame () {
+    let questionSet = [];
+    let questionIndex = 0;
+    let difficulty = questionSet[questionIndex].difficulty;
+    currentQuestion = questions.filter((question) => {
+        return question.difficulty == difficulty;
+        displayQuestion();
+    })
+}
 
+function displayQuestion() {
     //Code to display the current question 
     gameArea.innerHTML=
     `
@@ -182,22 +173,22 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
             <div id="question-counter">
                 <h3>Question: <span id="question-number"></span></h3>
             </div>
-            <div id="current-question">${currentQuestion}</div>
+            <div id="current-question"></div>
         </div>
         <hr> 
     <br>
     <form method="POST" action="">
-    <input type="radio" id="answer1" name="answer" value="${currentQuestion.answers[0].option}">
-    <label for="answer1">${currentQuestion.answers[0].option}"</label>
+    <input type="radio" id="answer1" name="answer">
+    <label for="answer1"></label>
     <br>
-    <input type="radio" id="answer2" name="answer" value="${currentQuestion.answers[1].option}">
-    <label for="answer2">${currentQuestion.answers[1].option}"</label>
+    <input type="radio" id="answer2" name="answer" value="">
+    <label for="answer2"></label>
     <br>
-    <input type="radio" id="answer3" name="answer" value="${currentQuestion.answers[2].option}">
-    <label for="answer3">${currentQuestion.answers[2].option}"</label>
+    <input type="radio" id="answer3" name="answer">
+    <label for="answer3"></label>
     <br>
-    <input type="radio" id="answer4" name="answer" value="${currentQuestion.answers[3]}">
-    <label for="answer4">${currentQuestion.answers[3].option}"</label>
+    <input type="radio" id="answer4" name="answer">
+    <label for="answer4"</label>
     </form>
     </div>
     <p id="score-count" class="trackers">
@@ -208,7 +199,21 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
     `;
 
 //When user clicks the check answer button
+let questionNumber = document.getElementById("question-number");
+let question = document.getElementById("current-question");
+let answer1 = document.getElementById("answer1");
+let answer2 = document.getElementById("answer2");
+let answer3 = document.getElementById("answer3");
+let answer4 = document.getElementById("answer4");
+let displayedScore = document.getElementById("score-count");
 
+question.innerHTML = questionSet[questionIndex].question;
+answer1.innerHTML = questionSet[questionIndex].answers[0].option;
+answer2.innerHTML = questionSet[questionIndex].answers[1].option;
+answer3.innerHTML = questionSet[questionIndex].answers[2].option;
+answer4.innerHTML = questionSet[questionIndex].answers[3].option;
+
+let confirmAnswer = document.getElementById("answer-check");
     confirmAnswer.addEventListener("click", function(event) {
     event.preventDefault();
     checkAnswer();
@@ -309,7 +314,7 @@ function showResults() {
         <h2>You have finished the quiz, thank you for playing</h2>
     </div>
     <div id="result-messsage">
-        <p>Congratulations, ${username}, <br> you scored ${correctScore} out of 10.</p>
+        <p>Congratulations, <br> you scored ${correctScore} out of 10.</p>
     </div>
    <button id="new-game" type="submit">Play Again</button>
    </div>

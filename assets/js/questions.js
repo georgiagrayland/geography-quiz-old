@@ -1,4 +1,7 @@
 //Page to store quiz questions
+let basicDifficulty = document.getElementById("basic-knowledge-btn");
+let intermediateDifficulty = document.getElementById("intermediate-btn");
+let geniusDifficulty = document.getElementById("geography-genius-btn");
 
 const questions = [
     {
