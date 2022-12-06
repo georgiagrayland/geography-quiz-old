@@ -5,19 +5,9 @@ let start = document.getElementById("initiate");
 let gameArea = document.querySelector(".content-box");
 
 //Creating username
-let username = document.getElementById("username-choice");
-let resetUsername = document.getElementById("reset-form");
-let submitUsername = document.getElementById("submit-form");
-
-
-
-//Move on to next question after correct/incorrect answer message
-let continueGame = document.getElementById("continue");
-
-//Play game again 
-let playAgain = document.getElementById("new-game");
-
-
+//let username = document.getElementById("username-choice");
+//let resetUsername = document.getElementById("reset-form");
+//let submitUsername = document.getElementById("submit-form");
 
 
 //Starting the game event listener
@@ -206,6 +196,7 @@ let answer2 = document.getElementById("answer2");
 let answer3 = document.getElementById("answer3");
 let answer4 = document.getElementById("answer4");
 let displayedScore = document.getElementById("score-count");
+let currentAnswer = questionSet[questionIndex].option === true;
 
 question.innerHTML = questionSet[questionIndex].question;
 answer1.innerHTML = questionSet[questionIndex].answers[0].option;
@@ -246,6 +237,8 @@ if (questionNumber < selectedDifficulty.length){
 /**listens for if user has selected correct answer or not and move to answer message */
 function checkAnswer (){
 
+    //let selectedAnswer = questionSet[questionIndex].answers.checked;??
+
     //.checked code for the radio button inspired by discussions on stack overflow
 
     if (selectedAnswer === true) {
@@ -272,10 +265,12 @@ Move on for more!</p>
 `;
 
     //Wait for user to click next question button
+let continueGame = document.getElementById("continue");
     continueGame.addEventListener("click", function(event){
         event.preventDefault();
         questionNumber++;
         correctScore++;
+        questionIndex++;
         displayQuestion(questionNumber, correctScore, incorrectScore);
     });
 
@@ -322,10 +317,10 @@ function showResults() {
 
     //Listener to start a new game 
     
-    
+let playAgain = document.getElementById("new-game");
     playAgain.addEventListener("click", function(event){
         event.preventDefault();
-        selectDifficulty(username);
+        selectDifficulty();
     });
 }
 
