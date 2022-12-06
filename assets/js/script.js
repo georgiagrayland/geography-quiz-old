@@ -10,26 +10,29 @@ let resetUsername = document.getElementById("reset-form");
 let submitUsername = document.getElementById("submit-form");
 
 //Display rules and move on 
-let moveOn = document.getElementById("move-on-btn")
+let moveOn = document.getElementById("move-on-btn");
 
 //Difficulty selectors
 let difficultyName = document.getElementsByClassName("difficulty");
 let selectedDifficulty = document.getElementsByClassName("difficulty");
 
-let basic = document.getElementById("basic-knowledge-btn");
-//let basicDifficulty = basic.getAttribute("id");
+let basicDifficulty = document.getElementById("basic-knowledge-btn");
 
-let intermediate = document.getElementById("intermediate-btn");
-//let intermediateDifficulty = intermediate.getAttribute("id");
+let intermediateDifficulty = document.getElementById("intermediate-btn");
 
-let genius = document.getElementById("geography-genius-btn");
-//let geniusDifficulty = genius.getAttribute("id");
+let geniusDifficulty = document.getElementById("geography-genius-btn");
 
 //Displaying the questions and selecting answer
-let currentQuestion = selectQuestion(selectedDifficulty, question, questionNumber);
-let currentAnswer = selectQuestion(correctAnswer);
+let currentQuestion = questionSet[questionIndex].question;
+let answer1 = document.getElementById("answer1");
+let answer2 = document.getElementById("answer2");
+let answer3 = document.getElementById("answer3");
+let answer4 = document.getElementById("answer4");
 let displayedScore = document.getElementById("score-count");
 let confirmAnswer = document.getElementById("answer-check");
+let selectedAnswer = selectQuestion.questions.options.checked;
+let currentAnswer = questionSet[answers === true];
+
 
 //Move on to next question after correct/incorrect answer message
 let continueGame = document.getElementById("continue");
@@ -39,13 +42,16 @@ let playAgain = document.getElementById("new-game");
 
 
 //Game variables
+let questionNumber = 1;
+let questionIndex = 0;
+let questionSet = [questions];
 
 
 //Starting the game event listener
 
 function createUsername() {
-    console.log("ggg", gameArea)
-    gameArea.innerHTML ="name"
+    console.log("ggg", gameArea);
+    gameArea.innerHTML ="name";
 
 }
 
@@ -166,10 +172,6 @@ genius.addEventListener("click", function(event) {
 
 function displayQuestion (questionNumber, correctScore, incorrectScore) {
 
-    //let questionNumber = document.getElementById("question-number").value = 1;
-    //let correctScore = 0;
-    //let incorrectScore = 0;
-
     //Code to display the current question 
     gameArea.innerHTML=
     `
@@ -179,22 +181,22 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
             <div id="question-counter">
                 <h3>Question: <span id="question-number"></span></h3>
             </div>
-            <div id="current-question">${currentQuestion.question}</div>
+            <div id="current-question">${currentQuestion}</div>
         </div>
         <hr> 
     <br>
     <form method="POST" action="">
-    <input type="radio" id="answer1" name="answer" value="${currentQuestion.options[0]}">
-    <label for="answer1">${currentQuestion.options[0]}"</label>
+    <input type="radio" id="answer1" name="answer" value="${currentQuestion.answers[0]}">
+    <label for="answer1">${currentQuestion.answers[0]}"</label>
     <br>
-    <input type="radio" id="answer2" name="answer" value="${currentQuestion.options[1]}">
-    <label for="answer2">${currentQuestion.options[1]}"</label>
+    <input type="radio" id="answer2" name="answer" value="${currentQuestion.answers[1]}">
+    <label for="answer2">${currentQuestion.answers[1]}"</label>
     <br>
-    <input type="radio" id="answer3" name="answer" value="${currentQuestion.options[2]}">
-    <label for="answer3">${currentQuestion.options[2]}"</label>
+    <input type="radio" id="answer3" name="answer" value="${currentQuestion.answers[2]}">
+    <label for="answer3">${currentQuestion.answers[2]}"</label>
     <br>
-    <input type="radio" id="answer4" name="answer" value="${currentQuestion.options[3]}">
-    <label for="answer4">${currentQuestion.options[3]}"</label>
+    <input type="radio" id="answer4" name="answer" value="${currentQuestion.answers[3]}">
+    <label for="answer4">${currentQuestion.answers[3]}"</label>
     </form>
     </div>
     <p id="score-count" class="trackers">
@@ -238,13 +240,9 @@ if (questionNumber < selectedDifficulty.length){
 /**listens for if user has selected correct answer or not and move to answer message */
 function checkAnswer (){
 
-    //Do we need this??
-    let selectedAnswer = selectQuestion.questions.options.checked;
-    let correctAnswer = selectQuestion.questions.correctAnswer;
-
     //.checked code for the radio button inspired by discussions on stack overflow
 
-    if (correctAnswer.checked) {
+    if (selectedAnswer === true) {
         alert("Correct Answer!");
     correctAnswerMessage();
     } else {
@@ -324,14 +322,6 @@ function showResults() {
         selectDifficulty(username);
     });
 }
-
-
-
-
-
-//Collecting constant elements needed before putting into functions
-
-const questionTracker = document.getElementById("question-number");
 
 
 
