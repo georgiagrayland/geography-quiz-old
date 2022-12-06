@@ -23,14 +23,16 @@ let intermediateDifficulty = document.getElementById("intermediate-btn");
 let geniusDifficulty = document.getElementById("geography-genius-btn");
 
 //Displaying the questions and selecting answer
-let currentQuestion = questionSet[questionIndex].question;
+let questionSet = [];
+let questionIndex = 0;
+//let currentQuestion = questionSet[questionIndex.questions.question];
 let answer1 = document.getElementById("answer1");
 let answer2 = document.getElementById("answer2");
 let answer3 = document.getElementById("answer3");
 let answer4 = document.getElementById("answer4");
 let displayedScore = document.getElementById("score-count");
 let confirmAnswer = document.getElementById("answer-check");
-let selectedAnswer = selectQuestion.questions.options.checked;
+let selectedAnswer = selectQuestion.questions.option.checked;
 let currentAnswer = questionSet[answers === true];
 
 
@@ -43,8 +45,7 @@ let playAgain = document.getElementById("new-game");
 
 //Game variables
 let questionNumber = 1;
-let questionIndex = 0;
-let questionSet = [questions];
+//let questionIndex = 0;
 
 
 //Starting the game event listener
@@ -186,17 +187,17 @@ function displayQuestion (questionNumber, correctScore, incorrectScore) {
         <hr> 
     <br>
     <form method="POST" action="">
-    <input type="radio" id="answer1" name="answer" value="${currentQuestion.answers[0]}">
-    <label for="answer1">${currentQuestion.answers[0]}"</label>
+    <input type="radio" id="answer1" name="answer" value="${currentQuestion.answers[0].option}">
+    <label for="answer1">${currentQuestion.answers[0].option}"</label>
     <br>
-    <input type="radio" id="answer2" name="answer" value="${currentQuestion.answers[1]}">
-    <label for="answer2">${currentQuestion.answers[1]}"</label>
+    <input type="radio" id="answer2" name="answer" value="${currentQuestion.answers[1].option}">
+    <label for="answer2">${currentQuestion.answers[1].option}"</label>
     <br>
-    <input type="radio" id="answer3" name="answer" value="${currentQuestion.answers[2]}">
-    <label for="answer3">${currentQuestion.answers[2]}"</label>
+    <input type="radio" id="answer3" name="answer" value="${currentQuestion.answers[2].option}">
+    <label for="answer3">${currentQuestion.answers[2].option}"</label>
     <br>
     <input type="radio" id="answer4" name="answer" value="${currentQuestion.answers[3]}">
-    <label for="answer4">${currentQuestion.answers[3]}"</label>
+    <label for="answer4">${currentQuestion.answers[3].option}"</label>
     </form>
     </div>
     <p id="score-count" class="trackers">
