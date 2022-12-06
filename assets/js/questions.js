@@ -103,63 +103,103 @@ const questions = [
     },
     {
         question:"Which Rainforest makes up half of the worlds Rainforest cover?",
-        correctAnswer: "The Amazon Rainforest",
-        difficulty: intermediateDifficulty,
-        options: ["The Amazon Rainforest", "The Congo Rainforest", "Southeast Asian Rainforest", "The Daintree Rainforest"],
+        answers: [
+            {option: "The Amazon Rainforest", answer: true},
+            {option: "The Congo Rainforest", answer: false},
+            {option: "Southeast Asian Rainforest", answer: false},
+            {option: "The Daintree Rainforest", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {
         question:"What is the Capital City of Malaysia?",
-        correctAnswer: "Kuala Lumpar",
-        difficulty: intermediateDifficulty,
-        options: ["Beijing", "Bangkok", "Jakarata"],
+        answers: [
+            {option: "Bankok", answer: false},
+            {option: "Jakarta", answer: false},
+            {option: "Kuala Lumpar", answer: true},
+            {option: "Beijing", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {
         question:"Which is the highest country (by elevation) in the world?",
-        correctAnswer: "Bhutan",
-        difficulty: intermediateDifficulty,
-        options: ["Ireland", "Colombia", "New Zealand", "Kuala Lumpar"],
+        answers: [
+            {option: "Ireland", answer: false},
+            {option: "Colombia", answer: false},
+            {option: "New Zealand", answer: false},
+            {option: "Bhutan", answer: true}
+        ],
+        difficulty: intermediateDifficulty
     },
     { 
         question:"What is the second most populous country in the world?",
-        correctAnswer: "India",
-        difficulty: intermediateDifficulty,
-        options: ["Iran", "India", "Japan", "Germany"],
+        answers: [
+            {option: "India", answer: true},
+            {option: "Iran", answer: false},
+            {option: "Japan", answer: false},
+            {option: "Germany", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {//Question 5 
         question:"Which Sea separates Europe and Africa?",
-        correctAnswer: "The Mediterranean Sea",
-        difficulty: intermediateDifficulty,
-        options: ["The Dead Sea", "The North Sea", "The Mediterranean Sea", "The Baltic Sea"],
+        answers: [
+            {option: "The Dead Sea", answer: false},
+            {option: "The Mediterranean Sea", answer: true},
+            {option: "The North Sea", answer: false},
+            {option: "The Baltic Sea", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {
         question:"What is the longest River in Asia?",
-        correctAnswer: "The Yangtze",
-        difficulty: intermediateDifficulty,
-        options: ["The Indus", "The Yellow River", "The Mekong", "The Yangtze"],
+        answers: [
+            {option: "The Indus", answer: false},
+            {option: "The Mekong", answer: false},
+            {option: "The Yangtze", answer: true},
+            {option: "The Yellow River", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
-    {
-        question:"What is the largest River in North America?",
-        correctAnswer: "Lake Superior",
-        difficulty: intermediateDifficulty,
-        options: ["Lake Erie", "Lake Superior", "Lake Michigan", "Lake Huron"],
+    {//Q7
+        question:"What is the largest Lake in North America?",
+        answers: [
+            {option: "Lake Superior", answer: true},
+            {option: "Lake Erie", answer: false},
+            {option: "Lake Michigan", answer: false},
+            {option: "Lake Huron", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {
         question:"Which Ocean lies between India and Africa?",
-        correctAnswer: "The Indian Ocean",
-        difficulty: intermediateDifficulty,
-        options: ["The Indian Ocean", "The Atlantic Ocean", "The Pacific Ocean", "The Southern Ocean"], 
+        answers: [
+            {option: "The Atlantic Ocean", answer: false},
+            {option: "The Indian Ocean", answer: true},
+            {option: "The Southern Ocean", answer: false},
+            {option: "The Pacific Ocean", answer: false}
+        ],
+        difficulty: intermediateDifficulty
     },
     {
         question:"Which country has the lowest population density?",
-        correctAnswer: "Mongolia",
-        difficulty: intermediateDifficulty,
-        options: ["Mongolia", "Bangladesh", "Argentina", "Chad"], 
+        answers: [
+            {option: "Chad", answer: false},
+            {option: "Argentina", answer: false},
+            {option: "Bangladesh", answer: false},
+            {option: "Mongolia", answer: true}
+        ],
+        difficulty: intermediateDifficulty
     },
     {//this is question 10
         question:"Which Italian City is famous for its canals?",
-        correctAnswer: "Venice",
-        difficulty: intermediateDifficulty,
-        options: ["Rome", "Naples", "Milan", "Venice"], 
+        answers: [
+            {option: "Venice", answer: true},
+            {option: "Naples", answer: false},
+            {option: "Rome", answer: false},
+            {option: "Milan", answer: false},
+        ],
+        difficulty: intermediateDifficulty
     },
     {//start of hardest difficulty questions 
         question:"What is the oldest city in the world?",
